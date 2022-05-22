@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
     name: 'movieDetail',
@@ -22,8 +22,14 @@ export default {
     },
     methods: {
         likeMovie() {
-            const URL_LIKE = `http://127.0.0.1:8000/movies/like/${this.movie.id}`
-            axios.post(URL_LIKE)
+            const URL_LIKE = `http://127.0.0.1:8000/movies/like/${this.movie.id}/`
+            // axios.post(URL_LIKE)
+            // axios.post(URL_LIKE, {
+            //     headers: {
+            //         'Authorization': `Token ${this.$store.state.token}`
+            //     }
+            // })
+            this.$store.dispatch('likeMovie', URL_LIKE)
         }
     }
 

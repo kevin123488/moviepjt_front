@@ -40,6 +40,7 @@ export default {
       console.log(res.data)
       this.$store.dispatch('movieListStars', res.data)
     })
+    console.log(this.$store.getters.profile)
 
   }
 }
