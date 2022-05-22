@@ -3,24 +3,21 @@
     <h1>Home</h1>
     <hr>
     <h1>인기순</h1>
-    <hr>
-    <div v-if="modalClicked" @click="modalClicked=false">
-      <div class="card" style="width: 30rem;">
-        <img :src="'https://image.tmdb.org/t/p/original' + watchingMovie.poster_path" alt="">
-        <!-- <button type="button" class="btn btn-primary" @click="createModal(movie)">상세정보</button> -->
-        {{ watchingMovie.title }}
-        {{ watchingMovie.overview }}
-      </div>
-        
-
+    <!-- <hr>
+      <div v-if="modalClicked" @click="modalClicked=false">
         <button type="button" @click="likeMovie(watchingMovie.id)">찜하기</button>
-    </div>
-    <hr>
+        <h1>{{ watchingMovie.title }}</h1>
+        <img :src="'https://image.tmdb.org/t/p/original' + watchingMovie.poster_path" alt="">
+      </div>
+    <hr> -->
     <carousel :per-page="5">
       <slide v-for="movie in movies" :key="movie.id">
           <div class="card" style="width: 20rem;">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
-            <button type="button" class="btn btn-primary" @click="createModal(movie)">상세정보</button>
+            <button @click="createDetail(movie)" type="button">
+              상세정보
+            </button>
+              <!-- <router-link :to="{path: `/movies/detail/${movie.id}`, params: {movie: watchingMovie} }" @click="createDetail(movie)">상세정보</router-link> -->
           </div>
         </slide>
     </carousel>
@@ -31,6 +28,10 @@
       <slide v-for="movie in movies_upto" :key="movie.id">
           <div class="card" style="width: 20rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
+            <!-- <button type="button" class="btn btn-primary" @click="createDetail(movie)">상세정보</button> -->
+          <button @click="createDetail(movie)" type="button">
+              상세정보
+            </button>
           </div>
         </slide>
     </carousel>
@@ -42,6 +43,10 @@
         <slide v-for="movie in movies_stars" :key="movie.id">
           <div class="card" style="width: 20rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
+            <!-- <button type="button" class="btn btn-primary" @click="createDetail(movie)">상세정보</button> -->
+          <button @click="createDetail(movie)" type="button">
+              상세정보
+            </button>
           </div>
         </slide>
       <!-- </div> -->
@@ -67,14 +72,16 @@ export default {
       movies: this.$store.state.movies,
       movies_upto: this.$store.state.movies_upto,
       movies_stars: this.$store.state.movies_stars,
-      modalClicked: false,
       watchingMovie: [],
     }
   },
   methods: {
-    createModal(movie) {
-      this.modalClicked = true
+    createDetail(movie) {
       this.watchingMovie = movie
+      console.log(this.watchingMovie)
+      this.$router.push(`/movies/detail/${movie.id}`)
+      this.$store.state.movieNow = this.watchingMovie
+
     },
     likeMovie(movie_id) {
       // this.$store.dispatch('movieLike', this.watchingMovie)

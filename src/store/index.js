@@ -13,6 +13,7 @@ export default new Vuex.Store({
     movies_upto: [],
     movies_stars: [],
     movieWanted: '',
+    movieNow: '',
   },
   getters: {
   },
