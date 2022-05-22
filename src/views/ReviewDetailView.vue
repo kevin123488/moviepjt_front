@@ -9,7 +9,7 @@
     </p>
     <!-- Article Edit/Delete UI -->
     <div v-if="isAuthor">
-      <p> 임마가 맞다</p>
+      <!-- <p> 임마가 맞다</p> -->
       <router-link :to="{ name: 'reviewEdit', params: { reviewPk } }">
         <button>Edit</button>
       </router-link>
@@ -56,7 +56,7 @@
       ...mapActions([
         'fetchReview',
         'likeReview',
-        'deleteReveiw',
+        'deleteReview',
       ])
     },
     created() {

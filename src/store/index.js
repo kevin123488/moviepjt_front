@@ -4,13 +4,13 @@ import Vuex from 'vuex'
 // import movies from './modules/movies'
 import accounts from './modules/accounts'
 import community from './modules/community'
-// import createPersistedState from 'vuex-persistedstate'
+import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  // plugins: [
-  //   createPersistedState()
-  // ],
+  plugins: [
+    createPersistedState()
+  ],
   state: {
     movies: [],
     movies_upto: [],

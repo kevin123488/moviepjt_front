@@ -73,7 +73,7 @@ const routes = [
   },
   // 인증 필요
   {
-    path: '/reviews/new', // 커뮤니티 글 생성
+    path: '/review/new', // 커뮤니티 글 생성
     name: 'reviewNew',
     component: ReviewNewView
   },
