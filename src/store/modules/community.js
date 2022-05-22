@@ -38,23 +38,13 @@ export default {
         .catch(err => console.error(err.response))
     },
 
-    fetchArticle({ commit, getters }, articlePk) {
-      /* 단일 게시글 받아오기
-      GET: article URL (token)
-        성공하면
-          응답으로 받은 게시글들을 state.articles에 저장
-        실패하면
-          단순 에러일 때는
-            에러 메시지 표시
-          404 에러일 때는
-            NotFound404 로 이동
-      */
+    fetchReview({ commit, getters }, reviewPk) {
       axios({
-        url: drf.articles.article(articlePk),
+        url: drf.reviews.review(reviewPk),
         method: 'get',
         headers: getters.authHeader,
       })
-        .then(res => commit('SET_ARTICLE', res.data))
+        .then(res => commit('SET_REVIEW', res.data))
         .catch(err => {
           console.error(err.response)
           if (err.response.status === 404) {
@@ -63,142 +53,96 @@ export default {
         })
     },
 
-    createArticle({ commit, getters }, article) {
-      /* 게시글 생성
-      POST: articles URL (게시글 입력정보, token)
-        성공하면
-          응답으로 받은 게시글을 state.article에 저장
-          ArticleDetailView 로 이동
-        실패하면
-          에러 메시지 표시
-      */
+    createReview({ commit, getters }, review) {
       
       axios({
-        url: drf.articles.articles(),
+        url: drf.reviews.reviews(),
         method: 'post',
-        data: article,
+        data: review,
         headers: getters.authHeader,
       })
         .then(res => {
-          commit('SET_ARTICLE', res.data)
+          commit('SET_REVIEW', res.data)
           router.push({
-            name: 'article',
-            params: { articlePk: getters.article.pk }
+            name: 'review',
+            params: { reviewPk: getters.review.pk }
           })
         })
     },
 
-    updateArticle({ commit, getters }, { pk, title, content}) {
-      /* 게시글 수정
-      PUT: article URL (게시글 입력정보, token)
-        성공하면
-          응답으로 받은 게시글을 state.article에 저장
-          ArticleDetailView 로 이동
-        실패하면
-          에러 메시지 표시
-      */
+    updateReview({ commit, getters }, { pk, review_title, movie_title, content}) {
       axios({
-        url: drf.articles.article(pk),
+        url: drf.reviews.review(pk),
         method: 'put',
-        data: { title, content },
+        data: { review_title, movie_title, content },
         headers: getters.authHeader,
       })
         .then(res => {
-          commit('SET_ARTICLE', res.data)
+          commit('SET_REVIEW', res.data)
           router.push({
-            name: 'article',
-            params: { articlePk: getters.article.pk }
+            name: 'review',
+            params: { reviewPk: getters.review.pk }
           })
         })
     },
 
-    deleteArticle({ commit, getters }, articlePk) {
-      /* 게시글 삭제
-      사용자가 확인을 받고
-        DELETE: article URL (token)
-          성공하면
-            state.article 비우기
-            AritcleListView로 이동
-          실패하면
-            에러 메시지 표시
-      */
+    deleteReview({ commit, getters }, reviewPk) {
       
       if (confirm('정말 삭제하시겠습니까?')) {
         axios({
-          url: drf.articles.article(articlePk),
+          url: drf.reviews.review(reviewPk),
           method: 'delete',
           headers: getters.authHeader,
         })
           .then(() => {
-            commit('SET_ARTICLE', {})
-            router.push({ name: 'articles' })
+            commit('SET_REVIEW', {})
+            router.push({ name: 'review' })
           })
           .catch(err => console.error(err.response))
       }
     },
 
-    likeArticle({ commit, getters }, articlePk) {
-      /* 좋아요
-      POST: likeArticle URL(token)
-        성공하면
-          state.article 갱신
-        실패하면
-          에러 메시지 표시
-      */
+    likeReview({ commit, getters }, reviewPk) {
       axios({
-        url: drf.articles.likeArticle(articlePk),
+        url: drf.reviews.likeReview(reviewPk),
         method: 'post',
         headers: getters.authHeader,
       })
-        .then(res => commit('SET_ARTICLE', res.data))
+        .then(res => commit('SET_REVIEW', res.data))
         .catch(err => console.error(err.response))
     },
 
-		createComment({ commit, getters }, { articlePk, content }) {
-      /* 댓글 생성
-      POST: comments URL(댓글 입력 정보, token)
-        성공하면
-          응답으로 state.article의 comments 갱신
-        실패하면
-          에러 메시지 표시
-      */
+		createComment({ commit, getters }, { reviewPk, content }) {
       const comment = { content }
 
       axios({
-        url: drf.articles.comments(articlePk),
+        url: drf.reviews.comments(reviewPk),
         method: 'post',
         data: comment,
         headers: getters.authHeader,
       })
         .then(res => {
-          commit('SET_ARTICLE_COMMENTS', res.data)
+          commit('SET_REVIEW_COMMENTS', res.data)
         })
         .catch(err => console.error(err.response))
     },
 
-    updateComment({ commit, getters }, { articlePk, commentPk, content }) {
-      /* 댓글 수정
-      PUT: comment URL(댓글 입력 정보, token)
-        성공하면
-          응답으로 state.article의 comments 갱신
-        실패하면
-          에러 메시지 표시
-      */
+    updateComment({ commit, getters }, { reviewPk, commentPk, content }) {
       const comment = { content }
 
       axios({
-        url: drf.articles.comment(articlePk, commentPk),
+        url: drf.reviews.comment(reviewPk, commentPk),
         method: 'put',
         data: comment,
         headers: getters.authHeader,
       })
         .then(res => {
-          commit('SET_ARTICLE_COMMENTS', res.data)
+          commit('SET_REVIEW_COMMENTS', res.data)
         })
         .catch(err => console.error(err.response))
     },
 
-    deleteComment({ commit, getters }, { articlePk, commentPk }) {
+    deleteComment({ commit, getters }, { reviewPk, commentPk }) {
       /* 댓글 삭제
       사용자가 확인을 받고
         DELETE: comment URL (token)
@@ -209,13 +153,13 @@ export default {
       */
         if (confirm('정말 삭제하시겠습니까?')) {
           axios({
-            url: drf.articles.comment(articlePk, commentPk),
+            url: drf.reviews.comment(reviewPk, commentPk),
             method: 'delete',
             data: {},
             headers: getters.authHeader,
           })
             .then(res => {
-              commit('SET_ARTICLE_COMMENTS', res.data)
+              commit('SET_REVIEW_COMMENTS', res.data)
             })
             .catch(err => console.error(err.response))
         }

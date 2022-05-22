@@ -1,15 +1,39 @@
 <template>
   <div>
-      <h1>Review</h1>
+    <h1>Home</h1>
+    <ul>
+      <li v-for="review in reviews" :key="review.pk">
+        <!-- 작성자 -->
+        {{ review.user.username }} : 
+
+        <!-- 글 이동 링크 (제목) -->
+        <router-link 
+          :to="{ name: 'reviewDetail', params: {reviewPk: review.pk} }">
+            {{ review.review_title }}
+        </router-link>
+
+
+      </li>
+    </ul>
+   
   </div>
 </template>
 
 <script>
-export default {
+  import { mapActions, mapGetters } from 'vuex'
 
-}
+  export default {
+    name: 'ReviewList',
+    computed: {
+      ...mapGetters(['reviews'])
+    },
+    methods: {
+      ...mapActions(['fetchReviews'])
+    },
+    created() {
+      this.fetchReviews()
+    },
+  }
 </script>
 
-<style>
-
-</style>
+<style></style>
