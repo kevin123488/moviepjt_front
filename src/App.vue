@@ -9,6 +9,37 @@
   </div>
 </template>
 
+<script>
+import axios from 'axios'
+
+const URL = 'http://127.0.0.1:8000/movies/'
+const URL_UP_TO = 'http://127.0.0.1:8000/movies/up_to/'
+const URL_STARS = 'http://127.0.0.1:8000/movies/stars/'
+
+export default {
+  name: 'App',
+  created() {
+    axios.get(URL)
+    .then(res => {
+      console.log(res.data)
+      this.$store.dispatch('movieList', res.data)
+    })
+    axios.get(URL_UP_TO)
+    .then(res => {
+      console.log(res.data)
+      this.$store.dispatch('movieListUpto', res.data)
+    })
+    axios.get(URL_STARS)
+    .then(res => {
+      console.log(res.data)
+      this.$store.dispatch('movieListStars', res.data)
+    })
+
+  }
+}
+
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
