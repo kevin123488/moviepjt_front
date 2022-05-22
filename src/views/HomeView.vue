@@ -59,7 +59,7 @@
 <script>
 // @ is an alias to /src
 import { Carousel, Slide } from 'vue-carousel'
-import axios from 'axios'
+// import axios from 'axios'
 
 
 export default {
@@ -84,16 +84,16 @@ export default {
       this.$store.state.movieNow = this.watchingMovie
 
     },
-    likeMovie(movie_id) {
+    // likeMovie(movie_id) {
       // this.$store.dispatch('movieLike', this.watchingMovie)
       // 로그인 여부 확인 후 적절한 조치를 취하는 로직 필요
       // 생각해봤는데 찜하기 버튼을 로그인시에만 보여주는게 더 좋을듯
-      const URL_LIKE = `http://127.0.0.1:8000/movies/like/${movie_id}`
-      axios.post(URL_LIKE) // 이렇게 하면 로그인한 유저의 정보로 해당 영화가 들어가겠지? 그러면 해당 유저의 like movie
+      // const URL_LIKE = `http://127.0.0.1:8000/movies/like/${movie_id}`
+      // axios.post(URL_LIKE) // 이렇게 하면 로그인한 유저의 정보로 해당 영화가 들어가겠지? 그러면 해당 유저의 like movie
       // 부분에 영화 정보가 들어가겠지?
       // 그 영화 정보를 LikeMovieView에서 요청받아보면 될 듯 
-    }
-  }
+    // }
+  },
 
 }
 </script>

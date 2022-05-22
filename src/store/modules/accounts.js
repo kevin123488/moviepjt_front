@@ -122,5 +122,13 @@ export default {
           commit('SET_PROFILE', res.data)
         })
     },
+
+    likeMovie({getters}, urlLike) {
+      axios({
+        url: urlLike,
+        method: 'post',
+        headers: getters.authHeader,
+      })
+    },
   },
 }
