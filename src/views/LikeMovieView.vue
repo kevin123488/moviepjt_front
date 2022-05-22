@@ -20,12 +20,16 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'likemovieView',
   computed: {
-    ...mapGetters(['profile'])
+    ...mapGetters(['profile', 'currentUser'])
   },
   // update() {
   //   const payload = { username: this.$route.params.username }
   //   this.fetchProfile(payload)
   // },
+  created() {
+    const payload = { username: this.currentUser.username }
+    this.fetchProfile(payload)
+  },
 }
 </script>
 

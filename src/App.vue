@@ -22,7 +22,7 @@ import { mapGetters, mapActions} from 'vuex'
 export default {
   name: 'App',
   computed: {
-    ...mapGetters(['isLoggedIn'])
+    ...mapGetters(['isLoggedIn', 'currentUser'])
   },
   methods: {
     ...mapActions(['fetchProfile'])
@@ -45,7 +45,7 @@ export default {
     })
     console.log(this.$store.getters.profile)
     
-    const payload = { username: this.$route.params.username }
+    const payload = { username: this.currentUser.username }
     this.fetchProfile(payload)
   }
 }
