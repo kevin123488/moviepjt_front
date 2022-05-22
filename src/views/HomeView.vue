@@ -3,7 +3,6 @@
     <h1>Home</h1>
     <hr>
     <h1>인기순</h1>
-    <h1>인기수우우우운</h1>
     <!-- <hr>
       <div v-if="modalClicked" @click="modalClicked=false">
         <button type="button" @click="likeMovie(watchingMovie.id)">찜하기</button>

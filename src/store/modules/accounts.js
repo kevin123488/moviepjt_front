@@ -32,7 +32,6 @@ export default {
       commit('SET_TOKEN', token)
       localStorage.setItem('token', token)
     },
-
     removeToken({ commit }) {
       commit('SET_TOKEN', '')
       localStorage.setItem('token', '')
