@@ -18,7 +18,9 @@
           {{ movie.title }}
         </router-link>
       </li>
-    </ul>   
+    </ul>
+    <h2> 팔로우</h2>   
+    <h2> 팔로워</h2>   
   </div>
 </template>
 
