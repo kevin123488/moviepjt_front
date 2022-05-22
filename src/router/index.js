@@ -34,9 +34,9 @@ const routes = [
   },
   // 아직 login관련 컴포넌트를 만들어두진 않음. 우선 어떤 컴포넌트를 연결할 것인지 정도만 써두자
   {
-    path: '/detail/:moviePk',
+    path: '/movies/detail/:moviePk',
     name: 'moviedetail',
-    component: MovieDetailView,
+    component: MovieDetailView
   },
   // 여기부터 accounts 관련 routing
   {
