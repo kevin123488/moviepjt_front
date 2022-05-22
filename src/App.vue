@@ -4,6 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/recommendmovie">Recommend</router-link> |
       <router-link to="/likemovie">Likemovie</router-link> |
+      <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
+      <router-link v-if="!!isLoggedIn" to="/logout">Logout</router-link>
     </nav>
     <router-view/>
   </div>
@@ -16,8 +18,12 @@ const URL = 'http://127.0.0.1:8000/movies/'
 const URL_UP_TO = 'http://127.0.0.1:8000/movies/up_to/'
 const URL_STARS = 'http://127.0.0.1:8000/movies/stars/'
 
+import { mapGetters} from 'vuex'
 export default {
   name: 'App',
+  computed: {
+    ...mapGetters(['isLoggedIn'])
+  },
   created() {
     axios.get(URL)
     .then(res => {
