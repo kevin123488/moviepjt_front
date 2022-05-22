@@ -14,13 +14,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 
 export default {
   name: 'likemovieView',
   computed: {
     ...mapGetters(['profile', 'currentUser'])
+  },
+  methods: {
+    ...mapActions(['fetchProfile'])
   },
   // update() {
   //   const payload = { username: this.$route.params.username }
