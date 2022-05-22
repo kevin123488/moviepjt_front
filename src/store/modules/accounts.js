@@ -6,7 +6,7 @@ export default {
   // namespaced: true,
 
   state: {
-    token: localStorage.getItem('token') || '' ,
+    token: localStorage.getItem('token') || '',
     currentUser: {},
     profile: {},
     authError: null,
@@ -17,7 +17,7 @@ export default {
     currentUser: state => state.currentUser,
     profile: state => state.profile,
     authError: state => state.authError,
-    authHeader: state => ({ Authorization: `Token ${state.token}`})
+    authHeader: state => ({ Authorization: `Token ${state.token}` })
   },
 
   mutations: {
@@ -61,7 +61,7 @@ export default {
         url: drf.accounts.signup(),
         method: 'post',
         data: credentials
-      }) 
+      })
         .then(res => {
           const token = res.data.key
           dispatch('saveToken', token)
@@ -107,12 +107,20 @@ export default {
       }
     },
 
-    // fetchProfile({ commit, getters }, { username }) {
-    //   /*
-    //   GET: profile URL로 요청보내기
-    //     성공하면
-    //       state.profile에 저장
-    //   */
-    // },
+    fetchProfile({ commit, getters }, { username }) {
+      /*
+      GET: profile URL로 요청보내기
+        성공하면
+          state.profile에 저장
+      */
+      axios({
+        url: drf.accounts.profile(username),
+        method: 'get',
+        headers: getters.authHeader,
+      })
+        .then(res => {
+          commit('SET_PROFILE', res.data)
+        })
+    },
   },
 }
