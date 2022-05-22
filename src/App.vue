@@ -18,11 +18,14 @@ const URL = 'http://127.0.0.1:8000/movies/'
 const URL_UP_TO = 'http://127.0.0.1:8000/movies/up_to/'
 const URL_STARS = 'http://127.0.0.1:8000/movies/stars/'
 
-import { mapGetters} from 'vuex'
+import { mapGetters, mapActions} from 'vuex'
 export default {
   name: 'App',
   computed: {
     ...mapGetters(['isLoggedIn'])
+  },
+  methods: {
+    ...mapActions(['fetchProfile'])
   },
   created() {
     axios.get(URL)
@@ -41,7 +44,9 @@ export default {
       this.$store.dispatch('movieListStars', res.data)
     })
     console.log(this.$store.getters.profile)
-
+    
+    const payload = { username: this.$route.params.username }
+    this.fetchProfile(payload)
   }
 }
 
