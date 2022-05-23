@@ -1,5 +1,5 @@
 <template>
-  <div class="comment-list">
+  <div>
     
     <ul>
       <comment-list-item 
@@ -27,7 +27,4 @@ export default {
 </script>
 
 <style>
-.comment-list {
-  border: 1px solid blue;
-}
 </style>

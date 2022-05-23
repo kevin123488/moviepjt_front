@@ -22,9 +22,9 @@ export default {
     reviews: {
       reviews: () => HOST + COMMUNITY,
       review: reviewPk => HOST + COMMUNITY + 'detail/' + `${reviewPk}/`,
-      likeReview: reviewPk => HOST + COMMUNITY + 'like/' + `${reviewPk}`,
-      comments: reviewPk => HOST + COMMUNITY + COMMENTS + `${reviewPk}` ,
+      likeReview: reviewPk => HOST + COMMUNITY + 'like/' + `${reviewPk}/`,
+      comments: reviewPk => HOST + COMMUNITY + COMMENTS + `${reviewPk}/` ,
       comment: (reviewPk, commentPk) =>
-        HOST + COMMUNITY + COMMENTS + `${reviewPk}` + `${commentPk}/`,
+        HOST + COMMUNITY + COMMENTS + `${reviewPk}/` + `${commentPk}/`,
     }
   }
