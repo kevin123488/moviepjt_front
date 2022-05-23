@@ -15,6 +15,7 @@ export default new Vuex.Store({
     movies: [],
     movies_upto: [],
     movies_stars: [],
+    movies_db: [],
     movieWanted: '',
     movieNow: '',
   },
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     MOVIE_LIKE(state, watchingMovie) {
       state.movieWanted = watchingMovie
+    },
+    MOVIE_DB(state, takenMovies) {
+      state.movies_db = takenMovies
     }
   },
   actions: {
@@ -46,6 +50,9 @@ export default new Vuex.Store({
     },
     movieLike({ commit }, watchingMovie) {
       commit('MOVIE_LIKE', watchingMovie)
+    },
+    movieDb({ commit }, takenMovies) {
+      commit('MOVIE_DB', takenMovies)
     }
   },
   modules: { accounts, community
