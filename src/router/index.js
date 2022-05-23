@@ -13,6 +13,7 @@ import ReviewDetailView from '../views/ReviewDetailView.vue'
 import ReviewNewView from '../views/ReviewNewView.vue'
 import ReviewEditView from '../views/ReviewEditView.vue'
 import NotFound404 from '../views/NotFound404.vue'
+import MovieSearchView from '../views/MovieSearchView.vue'
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,12 @@ const routes = [
     path: '/movies/detail/:moviePk',
     name: 'moviedetail',
     component: MovieDetailView
+  },
+  // 검색기능
+  {
+    path: '/search',
+    name: 'search',
+    component: MovieSearchView
   },
   // 여기부터 accounts 관련 routing
   {
