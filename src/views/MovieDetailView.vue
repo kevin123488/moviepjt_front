@@ -1,6 +1,11 @@
 <template>
     <div>
         <!-- <h1>영화 세부조회</h1> -->
+        <div>
+            <div v-if="!!trailer">
+                <iframe :src="videoURL" frameborder="0"></iframe>
+            </div>
+        </div>
         <div class="card">
             <div class="card-head">
                 <h1>{{ movie.title }}</h1>
@@ -27,6 +32,12 @@ const API_KEY = process.env.VUE_APP_TMDB_API_KEY
 
 export default {
     name: 'movieDetail',
+    computed: {
+        videoURL() {
+            const videoId = this.trailer
+            return `https://www.youtube.com/embed/${videoId}`
+        }
+    },
     data() {
         return {
             movie: this.$store.state.movieNow,
@@ -49,13 +60,19 @@ export default {
             // const URL_TRAILER = 'https://api.themoviedb.org/3/movie/popular' 요청 확인용 -> 잘 됨
             const params = {
                 api_key: API_KEY,
+                language: 'ko'
             }
             axios.get(URL_TRAILER, {params})
             .then(res => {
-                console.log(res.data)
+                console.log(res.data.results[0].id)
+                console.log(res.data.results)
+                this.trailer = res.data.results[0].key
+            })
+                
                 // axios 요청 제대로 안들어가짐. 나중에 수정
                 // 다른 경로로의 axios는 잘 먹힘. URL_TRAILER가 문제인듯
-            })
+                // id가 아니라 key로 요청을 보내야 함
+            
         }
     }
 

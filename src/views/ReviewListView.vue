@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Home</h1>
+    <router-link to="/review/new">글 작성</router-link>
     <ul>
       <li v-for="review in reviews" :key="review.pk">
         <!-- 작성자 -->
