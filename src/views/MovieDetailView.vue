@@ -45,11 +45,16 @@ export default {
             this.$store.dispatch('likeMovie', URL_LIKE)
         },
         trailerOn() {
-            const URL_TRAILER = `https://api.themoviedb.org/3/movie/${this.movie.movienumber}/videos/`
-            axios.get(URL_TRAILER, API_KEY)
+            const URL_TRAILER = `https://api.themoviedb.org/3/movie/${this.movie.movienumber}/videos`
+            // const URL_TRAILER = 'https://api.themoviedb.org/3/movie/popular' 요청 확인용 -> 잘 됨
+            const params = {
+                api_key: API_KEY,
+            }
+            axios.get(URL_TRAILER, {params})
             .then(res => {
-                console.log(res)
+                console.log(res.data)
                 // axios 요청 제대로 안들어가짐. 나중에 수정
+                // 다른 경로로의 axios는 잘 먹힘. URL_TRAILER가 문제인듯
             })
         }
     }
