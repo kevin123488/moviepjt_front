@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LikeMovieView from '../views/LikeMovieView.vue'
-import RecommendMovieView from '../views/RecommendMovieView.vue'
+// import RecommendMovieView from '../views/RecommendMovieView.vue'
 import MovieDetailView from '../views/MovieDetailView.vue'
 import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
@@ -14,6 +14,8 @@ import ReviewNewView from '../views/ReviewNewView.vue'
 import ReviewEditView from '../views/ReviewEditView.vue'
 import NotFound404 from '../views/NotFound404.vue'
 import MovieSearchView from '../views/MovieSearchView.vue'
+import RecommendView from '../views/RecommendView.vue'
+import RecommendMovie8Top from '../views/RecommendMovie8View.vue'
 
 Vue.use(VueRouter)
 
@@ -31,7 +33,13 @@ const routes = [
   {
     path: '/recommendmovie',
     name: 'recommendmovie',
-    component: RecommendMovieView
+    // component: RecommendMovieView
+    component: RecommendView
+  },
+  {
+    path: '/recommendmovie/8top',
+    name: 'recommendmovie8top',
+    component: RecommendMovie8Top
   },
   // 아직 login관련 컴포넌트를 만들어두진 않음. 우선 어떤 컴포넌트를 연결할 것인지 정도만 써두자
   {
