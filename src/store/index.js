@@ -18,6 +18,7 @@ export default new Vuex.Store({
     movies_db: [],
     movieWanted: '',
     movieNow: '',
+    movie8Top: [],
   },
   getters: {
   },
@@ -36,6 +37,9 @@ export default new Vuex.Store({
     },
     MOVIE_DB(state, takenMovies) {
       state.movies_db = takenMovies
+    },
+    GO_SEMI_FINAL(state, semifinal) {
+      state.movie8Top = semifinal
     }
   },
   actions: {
@@ -53,6 +57,9 @@ export default new Vuex.Store({
     },
     movieDb({ commit }, takenMovies) {
       commit('MOVIE_DB', takenMovies)
+    },
+    goSemiFinal({ commit }, semifinal) {
+      commit('GO_SEMI_FINAL', semifinal)
     }
   },
   modules: { accounts, community
