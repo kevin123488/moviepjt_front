@@ -14,9 +14,7 @@
       <ul class="navbar__icons">
         <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/login">Login</router-link></li>
         <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
-        <!-- <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/profile/admin/">Profile</router-link></li> -->
-        <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/profile/admin">Profile</a></li>
-        
+        <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" :to="{ name: 'profile', params:{username: currentUser.username} }">Profile</router-link></li>
         <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/logout">Logout</router-link></li>
       </ul>
       <!-- <a href="#" class="navbar__toogleBtn">
