@@ -1,5 +1,5 @@
 <template>
-  <li class="comment-list-item">
+  <li>
     <router-link :to="{ name: 'profile', params: { username: comment.user.username } }">
       {{ comment.user.username }}
     </router-link>: 
@@ -53,8 +53,4 @@ export default {
 </script>
 
 <style>
-.comment-list-item {
-  border: 1px solid green;
-
-}
 </style>

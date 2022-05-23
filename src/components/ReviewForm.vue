@@ -45,7 +45,7 @@ import { mapActions } from 'vuex'
         } else if (this.action === 'update') {
           const payload = {
             pk: this.review.pk,
-            ...this.newReveiw,
+            ...this.newReview,
           }
           this.updateReview(payload)
         }

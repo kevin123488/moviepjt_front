@@ -24,6 +24,7 @@ export default {
     onSubmit() {
       this.createComment({ reviewPk: this.review.pk, content: this.content, })
       this.content = ''
+      console.log(this.review.pk)
     }
   }
 }
