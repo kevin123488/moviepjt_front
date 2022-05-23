@@ -64,13 +64,13 @@ export default {
         .then(res => {
           commit('SET_REVIEW', res.data)
           router.push({
-            name: 'review',
+            name: 'reviews',
             params: { reviewPk: getters.review.pk }
           })
         })
     },
 
-    updateReview({ commit, getters }, { pk, review_title, movie_title, content}) {
+    updateReview({ commit, getters }, { pk, review_title, movie_title, content }) {
       axios({
         url: drf.reviews.review(pk),
         method: 'put',
@@ -80,14 +80,15 @@ export default {
         .then(res => {
           commit('SET_REVIEW', res.data)
           router.push({
-            name: 'review',
+            name: 'reviews',
             params: { reviewPk: getters.review.pk }
           })
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
-
     deleteReview({ commit, getters }, reviewPk) {
-      
       if (confirm('정말 삭제하시겠습니까?')) {
         axios({
           url: drf.reviews.review(reviewPk),
@@ -96,7 +97,7 @@ export default {
         })
           .then(() => {
             commit('SET_REVIEW', {})
-            router.push({ name: 'review' })
+            router.push({ name: 'reviews' })
           })
           .catch(err => console.error(err.response))
       }

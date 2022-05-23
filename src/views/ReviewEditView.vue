@@ -22,6 +22,7 @@ import { mapGetters, mapActions } from 'vuex'
     },
     created() {
       this.fetchReview(this.$route.params.reviewPk)
+      // console.log(this.$route.params.reviewPk)
     },
   }
 </script>

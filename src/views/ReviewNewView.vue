@@ -1,15 +1,26 @@
 <template>
   <div>
-      <h1>ReviewNEW</h1>
+    <h1>New Review</h1>
+    <review-form :review="review" action="create"></review-form>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+  import ReviewForm from '@/components/ReviewForm.vue'
+  export default {
+    name: 'ReviewNewView',
+    components: { ReviewForm },
+    data() {
+      return {
+        review: {
+          pk: null,
+          review_title: '',
+          moview_title: '',
+          content: '',
+        }
+      }
+    },
+  }
 </script>
 
-<style>
-
-</style>
+<style></style>
