@@ -7,6 +7,7 @@
       <ul class="navbar__menu">
         <li><router-link class="link_tag" to="/">Home</router-link></li>
         <li><router-link class="link_tag" to="/recommendmovie">Recommend</router-link></li>
+        <li><router-link class="link_tag" to="/reviews">Reviews</router-link></li>
         <!-- <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/likemovie">Likemovie</router-link></li> -->
         <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/likemovie">Likemovie</a></li>
       </ul>
