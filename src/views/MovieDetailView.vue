@@ -1,9 +1,19 @@
 <template>
     <div>
-        <h1>영화 세부조회</h1>
-        {{ movie.title }}
-        {{ movie.overview }}
-        <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
+        <!-- <h1>영화 세부조회</h1> -->
+        <div class="card">
+            <div class="card-head">
+                <h1>{{ movie.title }}</h1>
+            </div>
+            <div class="card-img-top">
+                <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
+            </div>
+
+            <div class="card-body">
+                {{ movie.overview }}
+            </div>
+
+        </div>
         
         <button type="button" @click="likeMovie">찜하기</button>
 

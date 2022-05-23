@@ -14,8 +14,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'likemovieView',
@@ -30,7 +29,7 @@ export default {
   //   this.fetchProfile(payload)
   // },
   created() {
-    const payload = { username: this.currentUser.username }
+    const payload = { username: this.currentUser }
     this.fetchProfile(payload)
   },
 }
