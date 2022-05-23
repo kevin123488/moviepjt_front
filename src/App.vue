@@ -13,6 +13,7 @@
       </ul>
 
       <ul class="navbar__icons">
+        <li><router-link class="link_tag" to="/search">Search</router-link></li>
         <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/login">Login</router-link></li>
         <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
         <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" :to="{ name: 'profile', params:{username: currentUser.username} }">Profile</router-link></li>
