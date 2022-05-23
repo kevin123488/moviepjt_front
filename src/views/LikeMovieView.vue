@@ -19,7 +19,7 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'likemovieView',
   computed: {
-    ...mapGetters(['profile', 'currentUser'])
+    ...mapGetters(['profile'])
   },
   methods: {
     ...mapActions(['fetchProfile'])
@@ -29,8 +29,10 @@ export default {
   //   this.fetchProfile(payload)
   // },
   created() {
-    const payload = { username: this.currentUser }
+    const payload = { username: this.$route.params.username }
     this.fetchProfile(payload)
+    // 현재 접속중인 user의 정보를 항상 admin으로 받아오는 것 같음
+    // this.$route.params.username이 어떤 로직인지 알아봐야겠음
   },
 }
 </script>

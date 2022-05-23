@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Home</h1>
-    <hr>
     <h1>인기순</h1>
     <!-- <hr>
       <div v-if="modalClicked" @click="modalClicked=false">
@@ -21,9 +20,7 @@
           </div>
         </slide>
     </carousel>
-    <hr>
     <h1>개봉 예정작</h1>
-    <hr>
     <carousel :per-page="5">
       <slide v-for="movie in movies_upto" :key="movie.id">
           <div class="card" style="width: 20rem;" @click="isModalViewed=true">
@@ -35,9 +32,7 @@
           </div>
         </slide>
     </carousel>
-    <hr>
     <h1>평점순</h1>
-    <hr>
     <carousel :per-page="5">
       <!-- <div v-for="movie in movies_stars" :key="movie.id"> -->
         <slide v-for="movie in movies_stars" :key="movie.id">

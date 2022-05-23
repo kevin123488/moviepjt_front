@@ -7,12 +7,16 @@
       <ul class="navbar__menu">
         <li><router-link class="link_tag" to="/">Home</router-link></li>
         <li><router-link class="link_tag" to="/recommendmovie">Recommend</router-link></li>
-        <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/likemovie">Likemovie</router-link></li>
+        <!-- <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/likemovie">Likemovie</router-link></li> -->
+        <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/likemovie">Likemovie</a></li>
       </ul>
 
       <ul class="navbar__icons">
         <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/login">Login</router-link></li>
         <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
+        <!-- <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/profile/admin/">Profile</router-link></li> -->
+        <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/profile/admin">Profile</a></li>
+        
         <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/logout">Logout</router-link></li>
       </ul>
       <!-- <a href="#" class="navbar__toogleBtn">
@@ -98,6 +102,9 @@ nav a.router-link-exact-active {
 }
 
 .navbar {
+  /* position: fixed; 최상단 고정용*/
+  /* width: 100%; 최상단 고정시 레이아웃 보정 */
+  /* z-index: 1; navbar 제일 앞에 두기 */
   display: flex;
   justify-content: space-between;
   align-items: center;
