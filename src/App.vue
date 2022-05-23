@@ -32,6 +32,7 @@ import axios from 'axios'
 const URL = 'http://127.0.0.1:8000/movies/'
 const URL_UP_TO = 'http://127.0.0.1:8000/movies/up_to/'
 const URL_STARS = 'http://127.0.0.1:8000/movies/stars/'
+const URL_DB = 'http://127.0.0.1:8000/movies/db/'
 
 
 
@@ -59,6 +60,10 @@ export default {
     .then(res => {
       console.log(res.data)
       this.$store.dispatch('movieListStars', res.data)
+    })
+    axios.get(URL_DB)
+    .then(res => {
+      this.$store.dispatch('movieDb', res.data)
     })
     console.log(this.$store.getters.profile)
     
