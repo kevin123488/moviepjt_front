@@ -11,22 +11,21 @@
     <hr> -->
     <carousel :per-page="5">
       <slide v-for="movie in movies" :key="movie.id">
-          <div class="card" style="width: 20rem;">
-            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
-            <button @click="createDetail(movie)" type="button">
-              상세정보
-            </button>
-              <!-- <router-link :to="{path: `/movies/detail/${movie.id}`, params: {movie: watchingMovie} }" @click="createDetail(movie)">상세정보</router-link> -->
-          </div>
-        </slide>
+        <div class="card" style="width: 20rem;">
+          <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
+          <button class="btn btn-outline-dark" @click="createDetail(movie)" type="button">
+            상세정보
+          </button>
+            <!-- <router-link :to="{path: `/movies/detail/${movie.id}`, params: {movie: watchingMovie} }" @click="createDetail(movie)">상세정보</router-link> -->
+        </div>
+      </slide>
     </carousel>
     <h1>개봉 예정작</h1>
     <carousel :per-page="5">
       <slide v-for="movie in movies_upto" :key="movie.id">
           <div class="card" style="width: 20rem;" @click="isModalViewed=true">
-            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
-            <!-- <button type="button" class="btn btn-primary" @click="createDetail(movie)">상세정보</button> -->
-          <button @click="createDetail(movie)" type="button">
+            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
+             <button class="btn btn-outline-dark"  @click="createDetail(movie)" type="button">
               상세정보
             </button>
           </div>
@@ -37,9 +36,9 @@
       <!-- <div v-for="movie in movies_stars" :key="movie.id"> -->
         <slide v-for="movie in movies_stars" :key="movie.id">
           <div class="card" style="width: 20rem;" @click="isModalViewed=true">
-            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
+            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid"> 
             <!-- <button type="button" class="btn btn-primary" @click="createDetail(movie)">상세정보</button> -->
-          <button @click="createDetail(movie)" type="button">
+          <button class="btn btn-outline-dark" @click="createDetail(movie)" type="button">
               상세정보
             </button>
           </div>
@@ -76,6 +75,7 @@ export default {
       console.log(this.watchingMovie)
       this.$router.push(`/movies/detail/${movie.id}`)
       this.$store.state.movieNow = this.watchingMovie
+      this.$refs['my-modal'].show()
 
     },
     // likeMovie(movie_id) {
@@ -91,3 +91,10 @@ export default {
 
 }
 </script>
+
+<style>
+  .card-img-top {
+    width: 100%;
+    height: 30rem;
+  }
+</style>
