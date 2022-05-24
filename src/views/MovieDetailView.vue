@@ -1,29 +1,38 @@
 <template>
-    <div>
-        <!-- <h1>영화 세부조회</h1> -->
-        <div>
-            <div v-if="!!trailer">
-                <iframe :src="videoURL" frameborder="0"></iframe>
+    <div class="d-flex justify-content-center">
+    <div class="card m-3 " style="max-width: 1000px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid rounded-start">
             </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <h1>{{ movie.title }}</h1>
-            </div>
-            <div class="card-img-top">
-                <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="">
-            </div>
-
+            <div class="col-md-8">
             <div class="card-body">
-                {{ movie.overview }}
+                <h1 class="card-title">{{ movie.title }}</h1>
+                <p class="card-text fs-4">{{ movie.overview }}</p>
+                <button class=" m-1 btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                        <div class="modal-body">
+                            <div>
+                                <iframe :src="videoURL" frameborder="0" style="width: 1100px; height:600px;"></iframe>
+                            </div>
+                        </div>
+                            <div class="modal-footer">
+                                <button @click="trailerOff" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <button class=" m-1 btn btn-outline-dark" type="button" @click="likeMovie">찜하기</button>
+                <button type=" m-1 button" class="btn btn-outline-dark" ><a href="/">back</a></button>
             </div>
-
+            </div>
         </div>
-        <button type="button" @click="trailerOn">트레일러 보기</button>
-        <button type="button" @click="likeMovie">찜하기</button>
-        <button type="button"><a href="/">back</a></button>
+    </div>
 
     </div>
+
 </template>
 
 <script>
@@ -73,7 +82,7 @@ export default {
                 // 다른 경로로의 axios는 잘 먹힘. URL_TRAILER가 문제인듯
                 // id가 아니라 key로 요청을 보내야 함
             
-        }
+        },
     }
 
 
@@ -81,5 +90,16 @@ export default {
 </script>
 
 <style>
-
+a:link {
+  color : black;
+  text-decoration: none;
+}
+a:visited {
+  color : black;
+  text-decoration: none;
+}
+a:hover {
+  color : white;
+  text-decoration: none;
+}
 </style>
