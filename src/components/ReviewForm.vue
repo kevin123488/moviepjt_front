@@ -1,21 +1,25 @@
 <template>
-  <form @submit.prevent="onSubmit">
-    <div>
-      <label for="review_title">review_title: </label>
-      <input v-model="newReview.review_title" type="text" id="review_title" />
+  <div class="container text-center">
+    <div class="d-flex justify-content-center" >
+      <form @submit.prevent="onSubmit">
+        <div>
+          <label class="form-label" for="review_title">Review_title </label>
+          <input class="form-control" style="width: 50rem;" v-model="newReview.review_title" type="text" id="review_title" />
+        </div>
+        <div>
+          <label class="form-label" for="movie_title">Movie_title: </label>
+          <input class="form-control" style="width: 50rem;" v-model="newReview.movie_title" type="text" id="movie_title" />
+        </div>
+        <div>
+          <label class="form-label" for="content">Contnet: </label>
+          <textarea class="form-control" style="width: 50rem;" v-model="newReview.content" type="text" id="content"></textarea>
+        </div>
+        <div>
+          <button class=" m-2 btn btn-outline-dark">{{ action }}</button>
+        </div>
+      </form>
     </div>
-    <div>
-      <label for="movie_title">movie_title: </label>
-      <input v-model="newReview.movie_title" type="text" id="movie_title" />
-    </div>
-    <div>
-      <label for="content">contnet: </label>
-      <textarea v-model="newReview.content" type="text" id="content"></textarea>
-    </div>
-    <div>
-      <button>{{ action }}</button>
-    </div>
-  </form>
+  </div>
 </template>
 
 <script>

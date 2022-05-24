@@ -1,20 +1,28 @@
 <template>
-  <div>
-    <h1>Home</h1>
-    <router-link to="/review/new">글 작성</router-link>
+  <div class="container m-5 d-flex justify-content-center">
+    <div>
+      <h1>Community</h1>
+      <br>
+      <h3>리뷰 목록</h3>
+      <router-link class="btn btn-outline-dark" to="/review/new">글 작성</router-link>
+    </div>
     <ul>
-      <li v-for="review in reviews" :key="review.pk">
-        <!-- 작성자 -->
-        {{ review.user.username }} : 
-
-        <!-- 글 이동 링크 (제목) -->
-        <router-link 
-          :to="{ name: 'reviewDetail', params: {reviewPk: review.pk} }">
-            {{ review.review_title }}
-        </router-link>
-
-
-      </li>
+      <ol v-for="review in reviews" :key="review.pk">
+      <div class="card mt-2">
+        <div class="card-header">
+          작성자 : {{ review.user.username}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">제목 : {{ review.review_title}}</h5>
+          <p class="card-text">♥️: {{ review.like_count}}</p>
+          <router-link 
+            :to="{ name: 'reviewDetail', params: {reviewPk: review.pk} }">
+            <button class="btn btn-outline-dark">detail</button>
+          </router-link>
+        </div>
+      </div>
+      </ol>
+      
     </ul>
    
   </div>
