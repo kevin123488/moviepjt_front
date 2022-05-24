@@ -126,7 +126,7 @@ export default {
             } else if (this.clickD.isClicked === 1) {
                 if (movie === this.clickD.movie[0]) {
                     this.clickD.isClicked -= 1
-                    this.clickA.movie = []
+                    this.clickD.movie = []
                 } else {
                     this.clickD.movie = []
                     this.clickD.movie.push(movie)
