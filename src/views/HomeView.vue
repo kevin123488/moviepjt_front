@@ -75,8 +75,6 @@ export default {
       console.log(this.watchingMovie)
       this.$router.push(`/movies/detail/${movie.id}`)
       this.$store.state.movieNow = this.watchingMovie
-      this.$refs['my-modal'].show()
-
     },
     // likeMovie(movie_id) {
       // this.$store.dispatch('movieLike', this.watchingMovie)

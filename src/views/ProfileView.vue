@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>{{ profile.username }}</h1>
+    <h1>{{ profile.username }} 님의 프로필</h1>
 
-    <h2>작성한 리뷰</h2>
-    <ul>
+    <h3>작성한 리뷰</h3>
+    <ul class="review_list">
       <li v-for="review in profile.reviews" :key="review.pk">
         <router-link :to="{ name: 'reviewDetail', params: { reviewPk: review.pk } }">
           {{ review.review_title }}
@@ -11,16 +11,17 @@
       </li>
     </ul>
 
-    <h2>좋아요 한 영화</h2>
+    <h2>내가 찜한 목록</h2>
     <ul>
       <li v-for="movie in profile.like_movies" :key="movie.pk">
-        <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
-          {{ movie.title }}
-        </router-link>
+        <div class="btn card" style="width: 12rem; height: 15rem;">
+          <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid profile-movie-image rounded-start">
+          <div class="card-body">
+            <p>{{ movie.title }}</p>
+          </div>
+        </div>
       </li>
-    </ul>
-    <h2> 팔로우</h2>   
-    <h2> 팔로워</h2>   
+    </ul> 
   </div>
 </template>
 
@@ -30,11 +31,22 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'ProfileView',
+  data() {
+    return {
+      watchingMovie:[]
+    }
+  },
   computed: {
     ...mapGetters(['profile'])
   },
   methods: {
-    ...mapActions(['fetchProfile'])
+    ...mapActions(['fetchProfile']),
+    goDetail(movie) {
+      this.watchingMovie = movie
+      console.log(this.watchingMovie)
+      this.$router.push(`/movies/detail/${movie.pk}`)
+      this.$store.state.movieNow = this.watchingMovie
+    }
   },
   created() {
     const payload = { username: this.$route.params.username }
@@ -42,3 +54,14 @@ export default {
   },
 }
 </script>
+
+<style>
+  .profile-movie-image {
+    width: 10rem;
+    height: 10rem;
+  }
+  a:hover {
+    color : black;
+    text-decoration: none;
+  }
+</style>
