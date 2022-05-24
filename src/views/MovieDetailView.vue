@@ -1,14 +1,14 @@
 <template>
     <div class="d-flex justify-content-center">
-    <div class="card m-3 " style="max-width: 1000px;">
+    <div class="card m-3 bg-ivory" style="width: 1500px;">
         <div class="row g-0">
             <div class="col-md-4">
-            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid rounded-start">
+            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid detail-img-size rounded-start">
             </div>
             <div class="col-md-8">
             <div class="card-body">
-                <h1 class="card-title">{{ movie.title }}</h1>
-                <p class="card-text fs-4">{{ movie.overview }}</p>
+                <h1 class="card-title fs-1">{{ movie.title }}</h1>
+                <p class="card-text fs-2">{{ movie.overview }}</p>
                 <button class=" m-1 btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl">
@@ -24,8 +24,8 @@
                         </div>
                     </div>
                     </div>
-                <button class=" m-1 btn btn-outline-dark" type="button" @click="likeMovie">찜하기</button>
-                <button type=" m-1 button" class="btn btn-outline-dark" ><a href="/">back</a></button>
+                <button class="m-1 btn btn-outline-dark" type="button" @click="likeMovie">찜하기</button>
+                <button type="m-1 button" class="btn btn-outline-dark" ><a href="/">back</a></button>
             </div>
             </div>
         </div>
@@ -63,6 +63,7 @@ export default {
             //     }
             // })
             this.$store.dispatch('likeMovie', URL_LIKE)
+            alert("찜했습니다.")
         },
         trailerOn() {
             const URL_TRAILER = `https://api.themoviedb.org/3/movie/${this.movie.movienumber}/videos`
@@ -101,5 +102,9 @@ a:visited {
 a:hover {
   color : white;
   text-decoration: none;
+}
+.detail-img-size {
+    width: 60rem;
+    height: 45rem;
 }
 </style>
