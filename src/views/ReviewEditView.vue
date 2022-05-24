@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container m-5 d-flex justify-content-center">
     <h1>Edit Review</h1>
     <review-form v-if="isReview" :review="review" action="update">
 

@@ -1,20 +1,19 @@
 <template>
   <li>
     <router-link :to="{ name: 'profile', params: { username: comment.user.username } }">
-      {{ comment.user.username }}
-    </router-link>: 
-    
-    <span v-if="!isEditing">{{ payload.content }}</span>
+      작성자 : {{ comment.user.username }}
+    </router-link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span v-if="!isEditing">{{ payload.content }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <span v-if="isEditing">
-      <input type="text" v-model="payload.content">
-      <button @click="onUpdate">Update</button> |
-      <button @click="switchIsEditing">Cancle</button>
+      <input type="text" v-model="payload.content">&nbsp;&nbsp;
+      <button class="btn btn-outline-dark" @click="onUpdate">Update</button> &nbsp;&nbsp;
+      <button class="btn btn-outline-dark" @click="switchIsEditing">Cancle</button>
     </span>
 
     <span v-if="currentUser.username === comment.user.username && !isEditing">
-      <button @click="switchIsEditing">Edit</button> |
-      <button @click="deleteComment(payload)">Delete</button>
+      <button class="btn btn-outline-dark" @click="switchIsEditing">Edit</button> &nbsp;&nbsp;
+      <button class="btn btn-outline-dark" @click="deleteComment(payload)">Delete</button>
     </span>
   </li>
 </template>
