@@ -1,22 +1,34 @@
 <template>
   <div>
       <h1>movie recommendation</h1>
-          <h1>teamA</h1>
-      <div class="teamA" v-for="movie in teamA.movie" :key="movie.id" @click="clicked(movie, teamA)">
-          {{ movie.title }}
+      <div class="group"><h1>Group A</h1></div>
+      <div class="adiv">
+        <div class="teamA" v-for="movie in teamA.movie" :key="movie.id" @click="clicked(movie, teamA)">
+            <!-- {{ movie.title }} -->
+            <img class="img" :src="'https://image.tmdb.org/t/p/original'+ movie.poster_path" alt="">
+        </div>
       </div>
-          <h1>teamB</h1>
-      <div class="teamB" v-for="movie in teamB.movie" :key="movie.id" @click="clicked(movie, teamB)">
-          {{ movie.title }}
-      </div>
-          <h1>teamC</h1>
-      <div class="teamC" v-for="movie in teamC.movie" :key="movie.id" @click="clicked(movie, teamC)">
-          {{ movie.title }}
-      </div>
-          <h1>teamD</h1>
-      <div class="teamD" v-for="movie in teamD.movie" :key="movie.id" @click="clicked(movie, teamD)">
-          {{ movie.title }}
-      </div>
+          <div class="group"><h1>Group B</h1></div>
+        <div class="adiv">
+            <div class="teamB" v-for="movie in teamB.movie" :key="movie.id" @click="clicked(movie, teamB)">
+                <!-- {{ movie.title }} -->
+                <img class="img" :src="'https://image.tmdb.org/t/p/original'+ movie.poster_path" alt="">
+            </div>
+        </div>
+          <div class="group"><h1>Group C</h1></div>
+          <div class="adiv">
+            <div class="teamC" v-for="movie in teamC.movie" :key="movie.id" @click="clicked(movie, teamC)">
+                <!-- {{ movie.title }} -->
+                <img class="img" :src="'https://image.tmdb.org/t/p/original'+ movie.poster_path" alt="">
+            </div>
+          </div>
+          <div class="group"><h1>Group D</h1></div>
+          <div class="adiv">
+            <div class="teamD" v-for="movie in teamD.movie" :key="movie.id" @click="clicked(movie, teamD)">
+                <!-- {{ movie.title }} -->
+                <img class="img" :src="'https://image.tmdb.org/t/p/original'+ movie.poster_path" alt="">
+            </div>
+          </div>
       <div>
           <button type="button" @click="gogogo">저장하기</button>
       </div>
@@ -28,6 +40,17 @@
         </button>
       </div>
 
+      <div class="basket">
+        <div class="search-box">
+            <a href="#" class="search-btn">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </a>
+        <div class="search-txt">
+          <p>________________담은 목록__________________</p>
+          <p v-for="select in selected" :key="select">{{ select }} /</p>
+        </div>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -108,5 +131,103 @@ export default {
 </script>
 
 <style>
+.test {
+    display: flex;
+    flex-direction: column;
+}
 
-</style>
+img {
+  z-index: 1;
+}
+
+span {
+        position: absolute;
+        top: 50%;
+    }
+    
+    .adiv {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    
+    .group {
+      text-align: center;
+      margin-bottom: 90px;
+    }
+    
+    .img {
+      width: 250px;
+      height: 300px;
+      border-radius: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .img:hover {
+      width: 300px;
+      height: 400px;
+      border-radius: 100px;
+      transition: 0.4s;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* 여기부턴 장바구니 */
+    .search-box {
+      z-index: 0;
+      position: fixed;
+      display: flex;
+      top:35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      height: 100px;
+      width: 1000px;
+      border-radius: 40px;
+      padding: 10px;
+      margin-right: 50px;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .search-txt:hover{
+      width: 1000px;
+      padding: 0 6px;
+      font-size: 16px;
+      background-color: #2f3640;
+      color: white;
+      height: 500px;
+      border-radius: 40px;
+    }
+    
+    .search-btn {      
+      color: #e84118;
+      width: 40px;
+      height: 35px;
+      border-radius: 50%;
+      background: #2f3640;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      bottom: 15px;
+    }
+    
+    .search-txt {
+      position: absolute;
+      border: none;
+      background: transparent;
+      outline: none;        
+      padding: 0;
+      color: transparent;
+      font-size: 20px;
+      transition: 0.4s;
+      line-height: 35px;
+      width: 0px;
+    }
+    
+    i {
+        color: white;
+    }         
+    </style>
