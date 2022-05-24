@@ -1,27 +1,30 @@
 <template>
-  <div>
-    <h1>{{ profile.username }} 님의 프로필</h1>
-
-    <h3>작성한 리뷰</h3>
-    <ul class="review_list">
-      <li v-for="review in profile.reviews" :key="review.pk">
-        <router-link :to="{ name: 'reviewDetail', params: { reviewPk: review.pk } }">
-          {{ review.review_title }}
-        </router-link>
-      </li>
-    </ul>
-
-    <h2>내가 찜한 목록</h2>
-    <ul>
-      <li v-for="movie in profile.like_movies" :key="movie.pk">
-        <div class="btn card" style="width: 12rem; height: 15rem;">
-          <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid profile-movie-image rounded-start">
-          <div class="card-body">
-            <p>{{ movie.title }}</p>
+  <div class="container m-5 d-flex justify-content-center">
+    <div>
+      <h1>{{ profile.username }} 님의 프로필</h1>
+      <h3 class="m-4">작성한 리뷰</h3>
+      <ul class="review_list">
+        <li v-for="review in profile.reviews" :key="review.pk">
+          <router-link :to="{ name: 'reviewDetail', params: { reviewPk: review.pk } }">
+            {{ review.review_title }}
+          </router-link>
+        </li>
+      </ul>
+      <div class="container">
+        <h2 class="m-4">내가 찜한 목록</h2>
+        <div class="row">
+          <div class="col col-lg-3 mt-5 " v-for="movie in profile.like_movies" :key="movie.pk">
+            <div class="btn card" style="width: 12rem; height: 15rem;">
+              <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid profile-movie-image rounded-start">
+              <div class="card-body">
+                <p>{{ movie.title }}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </li>
-    </ul> 
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -46,7 +49,7 @@ export default {
       console.log(this.watchingMovie)
       this.$router.push(`/movies/detail/${movie.pk}`)
       this.$store.state.movieNow = this.watchingMovie
-    }
+    },
   },
   created() {
     const payload = { username: this.$route.params.username }
