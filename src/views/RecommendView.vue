@@ -67,12 +67,15 @@ export default {
                 this.selected.splice(idx, 1)
             } else {
                 if (team.isClicked === 2) {
-                    this.selected.splice(0, 1) // 클릭된게 2개인 상태에서 중복 아닌애가 클릭된다? 제일 첫값 지우자
-                    this.selected.push(movie.title)
+                    // this.selected.splice(0, 1) // 클릭된게 2개인 상태에서 중복 아닌애가 클릭된다? 해당 영화 그룹중 가장 먼제 들어간 애를 지우자
+                    // 해당하는 팀을 선택, 그 팀에 포함된 영화중 가장 앞에있는 영화와 같은 이름인 애의 인덱스를
+                    // selected에서 찾은 후 걔를 splice
+                    alert('팀당 2개의 영화를 선택할 수 있습니다. 선택한 영화를 한번 더 누르면 삭제 가능합니다.')
                 } else {
                     this.selected.push(movie.title)
                     team.isClicked += 1
                 }
+                console.log(team.movie)
             }
             console.log(this.selected)
             console.log(this.teamA.isClicked)
