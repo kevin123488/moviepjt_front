@@ -19,6 +19,8 @@ export default new Vuex.Store({
     movieWanted: '',
     movieNow: '',
     movie8Top: [],
+    movie4Top: [],
+    movie2Top: [],
   },
   getters: {
   },
@@ -38,8 +40,14 @@ export default new Vuex.Store({
     MOVIE_DB(state, takenMovies) {
       state.movies_db = takenMovies
     },
+    GO_QUATER_FINAL(state, quaterfinal) {
+      state.movie8Top = quaterfinal
+    },
     GO_SEMI_FINAL(state, semifinal) {
-      state.movie8Top = semifinal
+      state.movie4Top = semifinal
+    },
+    GO_FINAL(state, final) {
+      state.movie2Top = final
     }
   },
   actions: {
@@ -58,9 +66,15 @@ export default new Vuex.Store({
     movieDb({ commit }, takenMovies) {
       commit('MOVIE_DB', takenMovies)
     },
+    goQuaterFinal({ commit }, quaterfinal) {
+      commit('GO_QUATER_FINAL', quaterfinal)
+    },
     goSemiFinal({ commit }, semifinal) {
       commit('GO_SEMI_FINAL', semifinal)
-    }
+    },
+    goFinal({ commit }, final) {
+      commit('GO_FINAL', final)
+    },
   },
   modules: { accounts, community
   }

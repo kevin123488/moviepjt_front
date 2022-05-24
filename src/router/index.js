@@ -16,6 +16,8 @@ import NotFound404 from '../views/NotFound404.vue'
 import MovieSearchView from '../views/MovieSearchView.vue'
 import RecommendView from '../views/RecommendView.vue'
 import RecommendMovie8Top from '../views/RecommendMovie8View.vue'
+import RecommendMovie4Top from '../views/RecommendMovie4View.vue'
+import RecommendMovie2Top from '../views/RecommendMovie2View.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +42,16 @@ const routes = [
     path: '/recommendmovie/8top',
     name: 'recommendmovie8top',
     component: RecommendMovie8Top
+  },
+  {
+    path: '/recommendmovie/4top',
+    name: 'recommendmovie4top',
+    component: RecommendMovie4Top
+  },
+  {
+    path: '/recommendmovie/2top',
+    name: 'recommendmovie2top',
+    component: RecommendMovie2Top
   },
   // 아직 login관련 컴포넌트를 만들어두진 않음. 우선 어떤 컴포넌트를 연결할 것인지 정도만 써두자
   {

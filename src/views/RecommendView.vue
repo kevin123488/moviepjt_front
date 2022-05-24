@@ -92,7 +92,7 @@ export default {
         movieSave: function() {
             console.log(this.selected)
             // this.$store.state.movie8Top = this.selected
-            this.$store.dispatch('goSemiFinal', this.selected)
+            this.$store.dispatch('goQuaterFinal', this.selected)
         },
     },
     created() {
