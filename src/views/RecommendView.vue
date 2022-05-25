@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="main-pre">_그룹당 2개의 영화를 장바구니에 담아 주세요_</div>
+      <div class="main-pre">그룹당 2개의 영화를 장바구니에 담아 주세요</div>
       <div class="group"><div class="group-align"><h1>Group A</h1></div></div>
       <div class="adiv">
         <div class="team" v-for="movie in teamA.movie" :key="movie.id" @click="clicked(movie, teamA)">
@@ -168,6 +168,7 @@ export default {
   width: 500px;
   margin-left: 50px;
   border-radius: 20px;
+  text-align: center;
 }
 
 .test {
@@ -188,6 +189,15 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: white;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 90px;
+  padding-bottom: 0px;
+  border-radius: 50px;
+  box-shadow: 5px 5px black;
+  height: 480px;
 }
     
 .group {
@@ -209,9 +219,19 @@ span {
   border-radius: 20px;
   margin: 0;
   padding: 0;
+  box-shadow: 5px 5px rgb(125, 123, 123);
 }
 
 .img:hover {
+  width: 300px;
+  height: 400px;
+  border-radius: 100px;
+  transition: 0.4s;
+  margin: 0;
+  padding: 0;
+}
+
+.img:visited {
   width: 300px;
   height: 400px;
   border-radius: 100px;

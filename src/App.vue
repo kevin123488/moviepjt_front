@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <nav class="navbar">
+    <nav class="navbar pb-0 pt-0">
       <div class="navbar__logo">
         <router-link class="link_tag" to="/"><img style="width:10rem; height:5rem;" src="@/assets/logo-goodmood2.png" alt=""></router-link>
       </div>
