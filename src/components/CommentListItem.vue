@@ -8,12 +8,12 @@
     </div>
     <div v-if="isEditing">
       <input type="text" v-model="payload.content">
-      <button class="btn btn-outline-light btn-sm" @click="onUpdate">Update</button>
-      <button class="btn btn-outline-light btn-sm" @click="switchIsEditing">Cancle</button>
+      <button class="white-button btn btn-outline-light btn-sm" @click="onUpdate">Update</button>
+      <button class="white-button btn btn-outline-light btn-sm" @click="switchIsEditing">Cancle</button>
     </div>
     <div v-if="currentUser.username === comment.user.username && !isEditing">
-      <button class="btn btn-outline-light btn-sm" @click="switchIsEditing">Edit</button>
-      <button class="btn btn-outline-light btn-sm" @click="deleteComment(payload)">Delete</button>
+      <button class="white-button btn btn-outline-light btn-sm" @click="switchIsEditing">Edit</button>
+      <button class="white-button btn btn-outline-light btn-sm" @click="deleteComment(payload)">Delete</button>
     </div>
   </li>
 </template>
