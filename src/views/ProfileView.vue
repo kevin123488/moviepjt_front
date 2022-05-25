@@ -3,13 +3,13 @@
     <div>
       <h1>{{ profile.username }} 님의 프로필</h1>
       <h3 class="m-4">작성한 리뷰</h3>
-      <ul class="review_list">
-        <li v-for="review in profile.reviews" :key="review.pk">
+      <div class="review_list">
+        <div class="review" v-for="review in profile.reviews" :key="review.pk">
           <router-link :to="{ name: 'reviewDetail', params: { reviewPk: review.pk } }">
             {{ review.review_title }}
           </router-link>
-        </li>
-      </ul>
+        </div>
+      </div>
       <div class="container">
         <h2 class="m-4">내가 찜한 목록</h2>
         <div class="row">
@@ -69,5 +69,23 @@ export default {
   }
   .boxcard {
     box-shadow: 5px 5px 5px 5px black;
+    overflow: auto;
   }
+
+  .review_list {
+    background: #4b546b;
+    border-radius: 20px;
+    box-shadow: 5px 5px 1px 1px black;
+    overflow: auto;
+    width: 300px;
+  }
+
+  .review {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 20px;
+  }
+
 </style>
