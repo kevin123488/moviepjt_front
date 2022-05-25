@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex justify-content-center">
-    <div class="card m-3 bg-ivory" style="width: 1500px;">
+    <div class="d-flex justify-content-center card-ev">
+    <div class="card m-3 bg-ivory card-thing" style="width: 1200px;">
         <div class="row g-0">
             <div class="col-md-4">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid detail-img-size rounded-start">
@@ -8,24 +8,28 @@
             <div class="col-md-8">
             <div class="card-body">
                 <h1 class="card-title fs-1">{{ movie.title }}</h1>
-                <p class="card-text fs-2">{{ movie.overview }}</p>
-                <button class=" m-1 btn btn-outline-dark" style="color: black" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                        <div class="modal-body">
-                            <div>
-                                <iframe :src="videoURL" frameborder="0" style="width: 1100px; height:600px;"></iframe>
+                <div class="overview-scrolling">
+                    <p class="card-text fs-2 mt-5">{{ movie.overview }}</p>
+                </div>
+                <div class="detail-buttons">
+                    <button class=" m-1 btn btn-outline-dark" style="color: black" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                            <div class="modal-body">
+                                <div>
+                                    <iframe :src="videoURL" frameborder="0" style="width: 1100px; height:600px;"></iframe>
+                                </div>
+                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
                         </div>
-                    </div>
-                    </div>
-                <button class="m-1 btn btn-outline-dark" style="color: black" type="button" @click="likeMovie">찜하기</button>
-                <button class="m-1 btn btn-outline-dark" style="color: black" type="button"><a href="/" style="color: black">back</a></button>
+                    <button class="m-1 btn btn-outline-dark" style="color: black" type="button" @click="likeMovie">찜하기</button>
+                    <button class="m-1 btn btn-outline-dark" style="color: black" type="button"><a href="/" style="color: black">back</a></button>
+                </div>
             </div>
             </div>
         </div>
@@ -91,6 +95,20 @@ export default {
 </script>
 
 <style>
+
+.overview-scrolling {
+    overflow: auto;
+}
+
+.card-thing {
+    box-shadow: 10px 10px black;
+    /* height: 35rem; */
+}
+
+.card-ev {
+    margin-top: 50px;
+}
+
 a:link {
   color : white;
   text-decoration: none;
@@ -105,6 +123,12 @@ a:hover {
 }
 .detail-img-size {
     width: 60rem;
-    height: 45rem;
+    height: 35rem;
+}
+
+.detail-buttons {
+    position: absolute;
+    top: 90%;
+    left: 75%;
 }
 </style>

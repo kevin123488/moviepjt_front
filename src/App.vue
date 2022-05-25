@@ -5,9 +5,9 @@
         <router-link class="link_tag" to="/"><img style="width:10rem; height:5rem;" src="@/assets/logo-goodmood2.png" alt=""></router-link>
       </div>
       <ul class="navbar__menu">
-        <li><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" to="/">Home</router-link></li>
-        <li><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" to="/recommendmovie">Recommend</router-link></li>
-        <li><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" to="/reviews">Reviews</router-link></li>
+        <li><router-link class="link_tag" to="/">Home</router-link></li>
+        <li><router-link class="link_tag" to="/recommendmovie">Recommend</router-link></li>
+        <li><router-link class="link_tag" to="/reviews">Reviews</router-link></li>
         <!-- <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/likemovie">Likemovie</router-link></li> -->
         <!-- <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/likemovie">Likemovie</a></li> -->
       </ul>
@@ -102,9 +102,11 @@ nav a.router-link-exact-active {
 }
 
 .link_tag {
-  text-decoration: none;
-  color: white;
+  color: #EF6C35;
+  /* text-decoration: none; */
+  /* color: white; */
   /* color: #EF6C35; */
+  font-size: 1.5rem; 
 }
 
 .navbar {
@@ -142,6 +144,11 @@ nav a.router-link-exact-active {
   background-color: #d49466;
   border-radius: 4px;
 }
+
+.navbar__menu li:hover > .link_tag {
+  color: black;
+}
+
 .navbar__icons {
   list-style: none;
   color: white;

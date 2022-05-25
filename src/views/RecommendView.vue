@@ -248,7 +248,7 @@ span {
   top: 80%;
   left: 90%;
   transform: translate(-50%, -50%);
-  background-color: #2f3640;
+  background-color: #EF6C35;
   height: 50px;
   width: 50px;
   border-radius: 40px;
@@ -256,6 +256,7 @@ span {
   margin-right: 50px;
   justify-content: center;
   align-items: center;
+  box-shadow: 2.5px 2.5px black;
 }
 
 .basket-box:hover > .basket-txt{
@@ -273,7 +274,7 @@ span {
   width: 40px;
   height: 35px;
   border-radius: 50%;
-  background: #2f3640;
+  background: #EF6C35;
   display: flex;
   justify-content: center;
   align-items: center;
