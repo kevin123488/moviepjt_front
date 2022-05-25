@@ -1,40 +1,56 @@
 <template>
   <div>
-      <h1>
-          8강 입니다
-      </h1>
-      <button v-if="!start" type="button" @click="takeMovie">8강 시작하기</button>
+    <div class="d-flex">
+      <button v-if="!start" class="button-next" type="button" @click="takeMovie">8강 시작하기</button>
+    </div>
       <div v-if="!!start">
         <div>
-            <h1>match 1</h1>
-            <div class="d-flex"><h1>선택중</h1>{{ clickA.movie[0] }}</div>
-            <div @click="click1(movies[0])">{{ movies[0] }}</div>
-            <div @click="click1(movies[7])">{{ movies[7] }}</div>
+            <div class="group"><div class="group-align"><h1>Match 1</h1></div></div>
+            <div class="select">{{ clickA.movie[0] }}</div>
+            <div class="d-flex justify-content-between matchup">
+                <div></div>
+                <div @click="click1(movies[0])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_1" alt=""></div>               
+                <!-- <div @click="click1(movies[7])">{{ movies[7] }}<img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_8" alt=""></div> -->
+                <div @click="click1(movies[7])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_8" alt=""></div>
+                <div></div>
+            </div>
         </div>
         <div>
-            <h1>match 2</h1>
-            <div class="d-flex"><h1>선택중</h1>{{ clickB.movie[0] }}</div>
-            <div @click="click2(movies[1])">{{ movies[1] }}</div>
-            <div @click="click2(movies[6])">{{ movies[6] }}</div>
+            <div class="group"><div class="group-align"><h1>Match 2</h1></div></div>
+            <div class="select">{{ clickB.movie[0] }}</div>
+            <div class="d-flex justify-content-between matchup">
+                <div></div>
+                <div @click="click2(movies[1])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_2" alt=""></div>
+                <div @click="click2(movies[6])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_7" alt=""></div>
+                <div></div>
+            </div>
         </div>
         <div>
-            <h1>match 3</h1>
-            <div class="d-flex"><h1>선택중</h1>{{ clickC.movie[0] }}</div>
-            <div @click="click3(movies[2])">{{ movies[2] }}</div>
-            <div @click="click3(movies[5])">{{ movies[5] }}</div>
+            <div class="group"><div class="group-align"><h1>Match 3</h1></div></div>
+            <div class="select">{{ clickC.movie[0] }}</div>
+            <div class="d-flex justify-content-between matchup">
+                <div></div>
+                <div @click="click3(movies[2])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_3" alt=""></div>
+                <div @click="click3(movies[5])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_6" alt=""></div>
+                <div></div>
+            </div>
         </div>
         <div>
-            <h1>match 4</h1>
-            <div class="d-flex"><h1>선택중</h1>{{ clickD.movie[0] }}</div>
-            <div @click="click4(movies[3])">{{ movies[3] }}</div>
-            <div @click="click4(movies[4])">{{ movies[4] }}</div>
+            <div class="group"><div class="group-align"><h1>Match 4</h1></div></div>
+            <div class="select">{{ clickD.movie[0] }}</div>
+            <div class="d-flex justify-content-between matchup">
+                <div></div>
+                <div @click="click4(movies[3])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_4" alt=""></div>
+                <div @click="click4(movies[4])"><img class="img" :src="'https://image.tmdb.org/t/p/original' + poster_5" alt=""></div>
+                <div></div>
+            </div>
         </div>
-        <div>
-            <button type="button" @click="gogogo">저장하기(낙장불입)</button>
+        <div class="d-flex">
+            <button type="button" class="button-next" v-if="!goNext" @click="gogogo">저장하기</button>
         </div>
-        <div>
-            <button type="button" v-if="goNext" @click="movieSave">
-                <router-link to='/recommendmovie/4top'>
+        <div class="d-flex">
+            <button type="button" class="button-next" v-if="goNext" @click="movieSave">
+                <router-link style="color: white;" to='/recommendmovie/4top'>
                     다음으로
                 </router-link>
             </button>
@@ -68,12 +84,47 @@ export default {
             },
             selected: [],
             goNext: false,
+            poster_1: '',
+            poster_2: '',
+            poster_3: '',
+            poster_4: '',
+            poster_5: '',
+            poster_6: '',
+            poster_7: '',
+            poster_8: '',
         }
     },
     methods: {
         takeMovie: function() {
             this.movies = this.$store.state.movie8Top
             this.start = true
+            const movie1 = this.movies[0]
+            const movie2 = this.movies[1]
+            const movie3 = this.movies[2]
+            const movie4 = this.movies[3]
+            const movie5 = this.movies[4]
+            const movie6 = this.movies[5]
+            const movie7 = this.movies[6]
+            const movie8 = this.movies[7]
+            this.$store.state.movies_db.forEach(res => {
+                if (res.title === movie1) {
+                    this.poster_1 = res.poster_path
+                } else if (res.title === movie2) {
+                    this.poster_2 = res.poster_path
+                } else if (res.title === movie3) {
+                    this.poster_3 = res.poster_path
+                } else if (res.title === movie4) {
+                    this.poster_4 = res.poster_path
+                } else if (res.title === movie5) {
+                    this.poster_5 = res.poster_path
+                } else if (res.title === movie6) {
+                    this.poster_6 = res.poster_path
+                } else if (res.title === movie7) {
+                    this.poster_7 = res.poster_path
+                } else if (res.title === movie8) {
+                    this.poster_8 = res.poster_path
+                }
+            })
         },
         click1: function(movie) {
             if (this.clickA.isClicked === 0) {
@@ -154,5 +205,38 @@ export default {
 </script>
 
 <style>
+
+.matchup {
+    background: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 30px 5px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px 5px rgb(191, 189, 189);
+}
+
+.select {
+    font-size: 24px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.button-next {
+  width: 200px;
+  height: 60px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-radius: 10px;
+  background-color: #2f3640;
+  color: white;
+  transition: 0.2s;
+}
+
+.button-next:hover {
+  width: 250px;
+  height: 75px;
+}
 
 </style>
