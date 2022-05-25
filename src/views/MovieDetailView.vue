@@ -7,12 +7,12 @@
             </div>
             <div class="col-md-8">
             <div class="card-body">
-                <h1 class="card-title fs-1">{{ movie.title }}</h1>
+                <h1 class="card-title fs-3">{{ movie.title }}</h1>
                 <div class="overview-scrolling">
-                    <p class="card-text fs-2 mt-5">{{ movie.overview }}</p>
+                    <p class="card-text fs-4 mt-5">{{ movie.overview }}</p>
                 </div>
                 <div class="detail-buttons">
-                    <button class=" m-1 btn btn-outline-dark" style="color: black" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
+                    <button class="detail-button m-1 btn btn-outline-dark" style="color: black" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
@@ -27,8 +27,8 @@
                             </div>
                         </div>
                         </div>
-                    <button class="m-1 btn btn-outline-dark" style="color: black" type="button" @click="likeMovie">찜하기</button>
-                    <button class="m-1 btn btn-outline-dark" style="color: black" type="button"><a href="/" style="color: black">back</a></button>
+                    <button class="detail-button m-1 btn btn-outline-dark" style="color: black" type="button" @click="likeMovie">찜하기</button>
+                    <button class="detail-button m-1 btn btn-outline-dark" style="color: black" type="button"><a href="/" style="color: black">back</a></button>
                 </div>
             </div>
             </div>
@@ -130,5 +130,9 @@ a:hover {
     position: absolute;
     top: 90%;
     left: 75%;
+}
+.detail-button:hover {
+  background-color: #d49466;
+  border-radius: 4px;
 }
 </style>

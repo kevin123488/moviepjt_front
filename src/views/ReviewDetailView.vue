@@ -9,16 +9,16 @@
         <p>내용 : {{ review.content }}</p>
         <div>
           좋아요:
-          <button class="btn btn-outline-light btn-sm" 
+          <button class="white-button btn btn-outline-light btn-sm" 
             @click="likeReview(reviewPk)"
           >{{ likeCount }}</button>
         </div>
         <div v-if="isAuthor">
           <!-- <p> 임마가 맞다</p> -->
           <router-link :to="{ name: 'reviewEdit', params: { reviewPk } }">
-            <button class="btn btn-outline-light btn-sm">Edit</button>
+            <button class="white-button btn btn-outline-light btn-sm">Edit</button>
           </router-link>&nbsp;&nbsp;
-          <button class="btn btn-outline-light btn-sm" @click="deleteReview(reviewPk)">Delete</button>
+          <button class="white-button btn btn-outline-light btn-sm" @click="deleteReview(reviewPk)">Delete</button>
         </div>
       </div>
     </div>

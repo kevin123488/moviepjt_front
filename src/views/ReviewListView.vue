@@ -4,7 +4,7 @@
       <h1>Community</h1>
       <br>
       <h3>리뷰 목록</h3>
-      <router-link class="btn btn-outline-light" style="color: white; hover-color: black;" to="/review/new">글 작성</router-link>
+      <router-link class="white-button btn btn-outline-light" style="color: white; hover-color: black;" to="/review/new">글 작성</router-link>
     </div>
     <ul>
       <ol v-for="review in reviews" :key="review.pk">
@@ -17,7 +17,7 @@
           <p class="card-text">♥️: {{ review.like_count}}</p>
           <router-link 
             :to="{ name: 'reviewDetail', params: {reviewPk: review.pk} }">
-            <button class="btn btn-outline-dark" style="color: black">detail</button>
+            <button class="detail-button btn btn-outline-dark" style="color: black">detail</button>
           </router-link>
         </div>
       </div>
@@ -45,4 +45,8 @@
   }
 </script>
 
-<style></style>
+<style>
+  .white-button:hover {
+    background-color: black;
+  }
+</style>
