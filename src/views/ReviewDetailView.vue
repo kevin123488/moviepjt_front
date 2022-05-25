@@ -1,13 +1,17 @@
 <template>
-  <div class="m-5 container text-center">
-    <h1>{{ review.user.username }}님의 게시글</h1>
+  <div class="container text-center review-all">
+    <div class="review-detail-title">{{ review.user.username }}님의 게시글</div>
     <div class="d-flex justify-content-center m-5">
       <div style="width: 50rem;">
-        <h3>리뷰 제목 : {{ review.review_title }}</h3>
-        <h4>영화 제목 :{{ review.movie_title }}</h4>
+        <div class="review-title-movie">
+          <h3>리뷰 제목 : {{ review.review_title }}</h3>
+          <h4>영화 제목 :{{ review.movie_title }}</h4>
+        </div>
         <!-- <p>{{ review.pk }}</p> -->
-        <p>내용 : {{ review.content }}</p>
-        <div>
+        <div class="review-all" style="width: 300px; margin: auto;">
+          <p>내용 : {{ review.content }}</p>
+        </div>
+        <div class="good-button">
           좋아요:
           <button class="btn btn-outline-light btn-sm" 
             @click="likeReview(reviewPk)"
@@ -74,4 +78,36 @@
   }
 </script>
 
-<style></style>
+<style>
+
+.good-button {
+  margin-top: 30px;
+}
+
+.review-title-movie {
+  background: #4b546b;
+  border-radius: 20px;
+  box-shadow: 5px 5px black;
+  margin-bottom: 15px;
+}
+
+.review-all {
+  margin-top: 20px;
+  border: 1px solid white;
+  border-radius: 30px;
+}
+
+.review-detail-title {
+  text-align: center;
+  left: 50%;
+  background: #4b546b;
+  margin-top: 20px;
+  font-size: 35px;
+  width: 500px;
+  border-radius: 20px;
+  box-shadow: 5px 5px black;
+  margin: auto;
+  margin-top: 30px;
+}
+
+</style>
