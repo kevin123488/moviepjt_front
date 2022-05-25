@@ -1,8 +1,8 @@
 <template>
   <div class="container m-5 d-flex justify-content-center">
     <div>
-      <h1>{{ profile.username }} 님의 프로필</h1>
-      <h3 class="m-4">작성한 리뷰</h3>
+      <div class="main-title m-0">{{ profile.username }} 님의 프로필</div>
+      <h3 class="main-title m-0 mt-3 mb-3">작성한 리뷰</h3>
       <div class="review_list">
         <div class="review" v-for="review in profile.reviews" :key="review.pk">
           <router-link :to="{ name: 'reviewDetail', params: { reviewPk: review.pk } }">
@@ -10,8 +10,8 @@
           </router-link>
         </div>
       </div>
-      <div class="container">
-        <h2 class="m-4">내가 찜한 목록</h2>
+      <div class="container liked_movie_list">
+        <h2 class="main-title mx-auto">내가 찜한 목록</h2>
         <div class="row">
           <div class="col col-lg-3 mt-5 " v-for="movie in profile.like_movies" :key="movie.pk">
             <div class=" boxcard btn card" style="width: 12rem; height: 15rem;">
@@ -59,6 +59,12 @@ export default {
 </script>
 
 <style>
+  .liked_movie_list {
+    border-radius: 30px;
+    box-shadow: 5px 5px black;
+    padding-bottom: 25px;
+  }
+
   .profile-movie-image {
     width: 10rem;
     height: 10rem;
@@ -75,7 +81,7 @@ export default {
   .review_list {
     background: #4b546b;
     border-radius: 20px;
-    box-shadow: 5px 5px 1px 1px black;
+    border: 1px solid white;
     overflow: auto;
     width: 300px;
   }
