@@ -2,22 +2,22 @@
   <div class="body">
     <nav class="navbar">
       <div class="navbar__logo">
-        <router-link class="link_tag" to="/"><img style="width:15rem; height:8rem;" src="@/assets/logo-goodmood2.png" alt=""></router-link>
+        <router-link class="link_tag" to="/"><img style="width:10rem; height:5rem;" src="@/assets/logo-goodmood2.png" alt=""></router-link>
       </div>
       <ul class="navbar__menu">
-        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/">Home</router-link></li>
-        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/recommendmovie">Recommend</router-link></li>
-        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/reviews">Reviews</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" to="/">Home</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" to="/recommendmovie">Recommend</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" to="/reviews">Reviews</router-link></li>
         <!-- <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/likemovie">Likemovie</router-link></li> -->
         <!-- <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/likemovie">Likemovie</a></li> -->
       </ul>
 
       <ul class="navbar__icons">
-        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/search">Search</router-link></li>
-        <li v-if="!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!isLoggedIn" to="/login">Login</router-link></li>
-        <li v-if="!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
-        <li v-if="!!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!!isLoggedIn" :to="{ name: 'profile', params:{username: currentUser.username} }">Profile</router-link></li>
-        <li v-if="!!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!!isLoggedIn" to="/logout">Logout</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" to="/search">Search</router-link></li>
+        <li v-if="!isLoggedIn"><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" v-if="!isLoggedIn" to="/login">Login</router-link></li>
+        <li v-if="!isLoggedIn"><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
+        <li v-if="!!isLoggedIn"><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" v-if="!!isLoggedIn" :to="{ name: 'profile', params:{username: currentUser.username} }">Profile</router-link></li>
+        <li v-if="!!isLoggedIn"><router-link class="link_tag" style="font-size: 1.5rem; color: #EF6C35;" v-if="!!isLoggedIn" to="/logout">Logout</router-link></li>
       </ul>
       <!-- <a href="#" class="navbar__toogleBtn">
         <i class="fa-solid fa-bars"></i>
