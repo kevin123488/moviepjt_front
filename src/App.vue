@@ -2,22 +2,22 @@
   <div class="body">
     <nav class="navbar">
       <div class="navbar__logo">
-        9oodmood
+        <router-link class="link_tag" to="/"><img style="width:15rem; height:8rem;" src="@/assets/logo-goodmood2.png" alt=""></router-link>
       </div>
       <ul class="navbar__menu">
-        <li><router-link class="link_tag" to="/">Home</router-link></li>
-        <li><router-link class="link_tag" to="/recommendmovie">Recommend</router-link></li>
-        <li><router-link class="link_tag" to="/reviews">Reviews</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/">Home</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/recommendmovie">Recommend</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/reviews">Reviews</router-link></li>
         <!-- <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/likemovie">Likemovie</router-link></li> -->
-        <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/likemovie">Likemovie</a></li>
+        <!-- <li v-if="!!isLoggedIn"><a class="link_tag" v-if="!!isLoggedIn" href="/likemovie">Likemovie</a></li> -->
       </ul>
 
       <ul class="navbar__icons">
-        <li><router-link class="link_tag" to="/search">Search</router-link></li>
-        <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/login">Login</router-link></li>
-        <li v-if="!isLoggedIn"><router-link class="link_tag" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
-        <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" :to="{ name: 'profile', params:{username: currentUser.username} }">Profile</router-link></li>
-        <li v-if="!!isLoggedIn"><router-link class="link_tag" v-if="!!isLoggedIn" to="/logout">Logout</router-link></li>
+        <li><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" to="/search">Search</router-link></li>
+        <li v-if="!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!isLoggedIn" to="/login">Login</router-link></li>
+        <li v-if="!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
+        <li v-if="!!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!!isLoggedIn" :to="{ name: 'profile', params:{username: currentUser.username} }">Profile</router-link></li>
+        <li v-if="!!isLoggedIn"><router-link class="link_tag" style="font-size: 2rem; color: #EF6C35;" v-if="!!isLoggedIn" to="/logout">Logout</router-link></li>
       </ul>
       <!-- <a href="#" class="navbar__toogleBtn">
         <i class="fa-solid fa-bars"></i>
@@ -104,6 +104,7 @@ nav a.router-link-exact-active {
 .link_tag {
   text-decoration: none;
   color: white;
+  /* color: #EF6C35; */
 }
 
 .navbar {
@@ -113,7 +114,11 @@ nav a.router-link-exact-active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(71, 67, 67);
+  background-color: #161C2E;
+  /* background-color: #263343; */
+  /* background-color: #E0E7E9; */
+  /* background-color: white; */
+  /* background-color: rgb(71, 67, 67); */
   padding: 8px 12px;
 }
 
@@ -137,7 +142,6 @@ nav a.router-link-exact-active {
   background-color: #d49466;
   border-radius: 4px;
 }
-
 .navbar__icons {
   list-style: none;
   color: white;
@@ -148,7 +152,12 @@ nav a.router-link-exact-active {
 .navbar__icons li {
   padding: 8px 12px;
 }
-
+.card {
+  color: black;
+}
+.btn {
+  color: white;
+}
 
 @media screen and (max-width: 768px) {
   .navbar {

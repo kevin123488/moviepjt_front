@@ -9,7 +9,7 @@
             <div class="card-body">
                 <h1 class="card-title fs-1">{{ movie.title }}</h1>
                 <p class="card-text fs-2">{{ movie.overview }}</p>
-                <button class=" m-1 btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
+                <button class=" m-1 btn btn-outline-dark" style="color: black" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" @click="trailerOn">트레일러 보기</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
@@ -24,8 +24,8 @@
                         </div>
                     </div>
                     </div>
-                <button class="m-1 btn btn-outline-dark" type="button" @click="likeMovie">찜하기</button>
-                <button type="m-1 button" class="btn btn-outline-dark" ><a href="/">back</a></button>
+                <button class="m-1 btn btn-outline-dark" style="color: black" type="button" @click="likeMovie">찜하기</button>
+                <button type="m-1 button" class="btn btn-outline-dark" style="color: black" ><a href="/">back</a></button>
             </div>
             </div>
         </div>
@@ -92,11 +92,11 @@ export default {
 
 <style>
 a:link {
-  color : black;
+  color : white;
   text-decoration: none;
 }
 a:visited {
-  color : black;
+  color : white;
   text-decoration: none;
 }
 a:hover {
