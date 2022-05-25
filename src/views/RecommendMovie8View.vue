@@ -213,6 +213,8 @@ export default {
     padding: 30px 5px;
     border-radius: 50px;
     box-shadow: 5px 5px 5px 5px rgb(191, 189, 189);
+    height: 480px;
+    align-items: center;
 }
 
 .select {
