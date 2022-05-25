@@ -14,7 +14,7 @@
         <h2 class="m-4">내가 찜한 목록</h2>
         <div class="row">
           <div class="col col-lg-3 mt-5 " v-for="movie in profile.like_movies" :key="movie.pk">
-            <div class="btn card" style="width: 12rem; height: 15rem;">
+            <div class=" boxcard btn card" style="width: 12rem; height: 15rem;">
               <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid profile-movie-image rounded-start">
               <div class="card-body">
                 <p>{{ movie.title }}</p>
@@ -66,5 +66,8 @@ export default {
   a:hover {
     color : black;
     text-decoration: none;
+  }
+  .boxcard {
+    box-shadow: 5px 5px 5px 5px black;
   }
 </style>

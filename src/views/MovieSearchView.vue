@@ -96,13 +96,14 @@ export default {
 .results:hover > .right-text {
     width: 500px;
     height: 250px;
-    color: #2f3640;
+    color: white;
+    /* color: #2f3640; */
 }
 
 .right-text {
     width: 0;
     height: 0;
-    color: white;
+    color: #3F475C;
     transition: 0.4s;
 }
 
