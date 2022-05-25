@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Home</h1>
-    <h1>인기순</h1>
+    <!-- <h1>Home</h1> -->
+    <h1 class="mt-5">인기순</h1>
     <!-- <hr>
       <div v-if="modalClicked" @click="modalClicked=false">
         <button type="button" @click="likeMovie(watchingMovie.id)">찜하기</button>
@@ -13,7 +13,7 @@
       <slide v-for="movie in movies" :key="movie.id">
         <div class="card" style="width: 20rem;">
           <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
-          <button class="btn btn-outline-dark" @click="createDetail(movie)" type="button">
+          <button class="btn btn-outline-dark" style="color: black;" @click="createDetail(movie)" type="button">
             상세정보
           </button>
             <!-- <router-link :to="{path: `/movies/detail/${movie.id}`, params: {movie: watchingMovie} }" @click="createDetail(movie)">상세정보</router-link> -->
@@ -25,7 +25,7 @@
       <slide v-for="movie in movies_upto" :key="movie.id">
           <div class="card" style="width: 20rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
-             <button class="btn btn-outline-dark"  @click="createDetail(movie)" type="button">
+             <button class="btn btn-outline-dark" style="color: black"  @click="createDetail(movie)" type="button">
               상세정보
             </button>
           </div>
@@ -38,7 +38,7 @@
           <div class="card" style="width: 20rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid"> 
             <!-- <button type="button" class="btn btn-primary" @click="createDetail(movie)">상세정보</button> -->
-          <button class="btn btn-outline-dark" @click="createDetail(movie)" type="button">
+          <button class="btn btn-outline-dark" style="color: black" @click="createDetail(movie)" type="button">
               상세정보
             </button>
           </div>
@@ -94,5 +94,8 @@ export default {
   .card-img-top {
     width: 100%;
     height: 30rem;
+  }
+  .btn:hover {
+    color: white;
   }
 </style>

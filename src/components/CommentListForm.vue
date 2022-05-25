@@ -2,7 +2,7 @@
   <form @submit.prevent="onSubmit" class="comment-list-form">
     <label for="comment">댓글달기: </label>
     <input type="text" id="comment" v-model="content" required>&nbsp;
-    <button class="btn btn-outline-dark">Comment</button>
+    <button class="btn btn-outline-light">Comment</button>
   </form>
 </template>
 

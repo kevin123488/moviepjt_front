@@ -1,20 +1,20 @@
 <template>
-  <li>
+  <li class="mt-4">
     <router-link :to="{ name: 'profile', params: { username: comment.user.username } }">
       작성자 : {{ comment.user.username }}
-    </router-link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span v-if="!isEditing">{{ payload.content }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <span v-if="isEditing">
-      <input type="text" v-model="payload.content">&nbsp;&nbsp;
-      <button class="btn btn-outline-dark" @click="onUpdate">Update</button> &nbsp;&nbsp;
-      <button class="btn btn-outline-dark" @click="switchIsEditing">Cancle</button>
-    </span>
-
-    <span v-if="currentUser.username === comment.user.username && !isEditing">
-      <button class="btn btn-outline-dark" @click="switchIsEditing">Edit</button> &nbsp;&nbsp;
-      <button class="btn btn-outline-dark" @click="deleteComment(payload)">Delete</button>
-    </span>
+    </router-link>
+    <div v-if="!isEditing"> 
+      내용 : {{ payload.content }}
+    </div>
+    <div v-if="isEditing">
+      <input type="text" v-model="payload.content">
+      <button class="btn btn-outline-light btn-sm" @click="onUpdate">Update</button>
+      <button class="btn btn-outline-light btn-sm" @click="switchIsEditing">Cancle</button>
+    </div>
+    <div v-if="currentUser.username === comment.user.username && !isEditing">
+      <button class="btn btn-outline-light btn-sm" @click="switchIsEditing">Edit</button>
+      <button class="btn btn-outline-light btn-sm" @click="deleteComment(payload)">Delete</button>
+    </div>
   </li>
 </template>
 
