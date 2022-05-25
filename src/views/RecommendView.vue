@@ -46,8 +46,9 @@
                 <i class="fa-solid fa-basket-shopping"></i>
             </a>
         <div class="basket-txt">
-          <p>________________담은 목록__________________</p>
-          <p v-for="select in selected" :key="select">{{ select }} /</p>
+          --담은목록: {{ selected.length }}개--
+          <hr class="mt-0 pt-0 mb-0 pb-0">
+          <p class="mb-0 pb-0" v-for="select in selected" :key="select">{{ select }} /</p>
         </div>
         </div>
       </div>
@@ -224,8 +225,8 @@ span {
   z-index: 0;
   position: fixed;
   display: flex;
-  top:35%;
-  left: 50%;
+  top: 80%;
+  left: 90%;
   transform: translate(-50%, -50%);
   background-color: #2f3640;
   height: 50px;
@@ -238,16 +239,16 @@ span {
 }
 
 .basket-box:hover > .basket-txt{
-  width: 350px;
+  width: 320px;
   padding: 0 6px;
   font-size: 16px;
   background-color: #2f3640;
   color: white;
-  height: 500px;
-  border-radius: 40px;
+  height: 340px;
+  border-radius: 20px;
 }
 
-.basket-btn {      
+.basket-btn {
   color: #e84118;
   width: 40px;
   height: 35px;
@@ -267,7 +268,7 @@ span {
   outline: none;        
   padding: 0;
   color: transparent;
-  font-size: 20px;
+  font-size: 16px;
   transition: 0.2s;
   line-height: 35px;
   width: 0px;
