@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <h1>Home</h1> -->
-    <h1 class="mt-5">인기순</h1>
+    <div class="main-title">인기순</div>
     <!-- <hr>
       <div v-if="modalClicked" @click="modalClicked=false">
         <button type="button" @click="likeMovie(watchingMovie.id)">찜하기</button>
@@ -9,9 +9,9 @@
         <img :src="'https://image.tmdb.org/t/p/original' + watchingMovie.poster_path" alt="">
       </div>
     <hr> -->
-    <carousel :per-page="5">
+    <carousel class="m-5" :per-page="5">
       <slide v-for="movie in movies" :key="movie.id">
-        <div class="card" style="width: 20rem;">
+        <div class="card home-card" style="width: 18rem;">
           <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
           <button class="detail-button btn btn-outline-dark" style="color: black;" @click="createDetail(movie)" type="button">
             상세정보
@@ -20,10 +20,10 @@
         </div>
       </slide>
     </carousel>
-    <h1>개봉 예정작</h1>
-    <carousel :per-page="5">
+    <div class="main-title">개봉 예정작</div>
+    <carousel class="m-5" :per-page="5">
       <slide v-for="movie in movies_upto" :key="movie.id">
-          <div class="card" style="width: 20rem;" @click="isModalViewed=true">
+          <div class="card home-card" style="width: 18rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
              <button class="detail-button btn btn-outline-dark" style="color: black"  @click="createDetail(movie)" type="button">
               상세정보
@@ -31,11 +31,11 @@
           </div>
         </slide>
     </carousel>
-    <h1>평점순</h1>
-    <carousel :per-page="5">
+    <div class="main-title">평점순</div>
+    <carousel class="m-5" :per-page="5">
       <!-- <div v-for="movie in movies_stars" :key="movie.id"> -->
         <slide v-for="movie in movies_stars" :key="movie.id">
-          <div class="card" style="width: 20rem;" @click="isModalViewed=true">
+          <div class="card home-card" style="width: 18rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid"> 
             <!-- <button type="button" class="btn btn-primary" @click="createDetail(movie)">상세정보</button> -->
           <button class="detail-button btn btn-outline-dark" style="color: black" @click="createDetail(movie)" type="button">
@@ -93,9 +93,26 @@ export default {
 <style>
   .card-img-top {
     width: 100%;
-    height: 30rem;
+    height: 20rem;
+    border-radius: 10px;
   }
+
   .btn:hover {
     color: white;
+  }
+
+  .home-card {
+    border-radius: 10px;
+    margin: auto;
+  }
+
+  .main-title {
+    background-color: #4b546b;
+    margin: 30px 30px;
+    font-size: 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px black;
   }
 </style>
