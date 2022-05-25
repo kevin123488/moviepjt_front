@@ -101,6 +101,7 @@ export default {
 }
 
 .right-text {
+    margin: 1rem;
     width: 0;
     height: 0;
     color: #3F475C;

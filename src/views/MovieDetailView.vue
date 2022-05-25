@@ -25,7 +25,7 @@
                     </div>
                     </div>
                 <button class="m-1 btn btn-outline-dark" style="color: black" type="button" @click="likeMovie">찜하기</button>
-                <button type="m-1 button" class="btn btn-outline-dark" style="color: black" ><a href="/">back</a></button>
+                <button class="m-1 btn btn-outline-dark" style="color: black" type="button"><a href="/" style="color: black">back</a></button>
             </div>
             </div>
         </div>

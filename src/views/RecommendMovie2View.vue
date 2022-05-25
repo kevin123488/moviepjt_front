@@ -24,7 +24,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content modal-sizeup">
                         <div class="modal-body">
-                            <h1>champion!!</h1>
+                            <h1 class="text-center" style="color: black">champion!!</h1>
                             <div><img class="img-final" :src="'https://image.tmdb.org/t/p/original' + poster" alt=""></div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ export default {
     height: 700px;
     width: 600;
     border-radius: 50px;
-    box-shadow: 5px 5px 5px 5px;
+    box-shadow: 5px 5px 5px 5px black;
 }
 
 .img-final {
