@@ -3,7 +3,7 @@
 
     <h1 class="title">9oodmood.Search</h1>
 
-      <div class="search-box">
+      <div class="search-box mt-5">
         <input class="search-txt" type="text" v-model="keywords" @keyup.enter="searchStart" placeholder="Search . . .">
         <a href="#" class="search-btn" @click="searchStart">
             <i style="color: white;" class="fas fa-search"></i>
