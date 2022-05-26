@@ -10,7 +10,7 @@
           </router-link>
         </div>
       </div>
-      <div class="container liked_movie_list">
+      <div class="liked_movie_list">
         <h2 class="main-title mx-auto">내가 찜한 목록</h2>
         <div class="row">
           <div class="col col-lg-3 mt-5" v-for="movie in profile.like_movies" :key="movie.pk">
@@ -60,6 +60,8 @@ export default {
 
 <style>
   .liked_movie_list {
+    width: 60rem;
+    margin-left: 5rem;
     border-radius: 30px;
     box-shadow: 5px 5px black;
     padding-bottom: 25px;
