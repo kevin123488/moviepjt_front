@@ -21,7 +21,7 @@
                 <hr>
                 {{ foun.overview }}
                 <hr>
-                <div href="#" @click="createDetail(foun)">
+                <div @click="createDetail(foun)">
                 상세정보
                 </div>
             </div>

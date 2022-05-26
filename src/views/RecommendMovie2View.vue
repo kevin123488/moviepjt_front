@@ -20,12 +20,20 @@
               <button type="button" class="button-next" data-bs-toggle="modal" data-bs-target="#exampleModal" v-if="final_submit">제출</button>
           </div>
           <div v-if="!!poster">
+
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content modal-sizeup">
                         <div class="modal-body">
                             <h1 class="text-center" style="color: black">champion!!</h1>
-                            <div><img class="img-final" :src="'https://image.tmdb.org/t/p/original' + poster" alt=""></div>
+                            <!-- 수정한 부분 -->
+                            <div class="d-flex">
+                                <img class="img-final" :src="'https://image.tmdb.org/t/p/original' + poster" alt="">
+                                <div class="final-title-overv">
+                                    <div class="mx-5"><h2>{{ watchingMovie.title }}</h2></div>
+                                    <div class="m-5">{{ watchingMovie.overview }}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,6 +56,7 @@ export default {
             poster_1: '',
             poster_2: '',
             final_submit: false,
+            watchingMovie: [],
         }
     },
     methods: {
@@ -74,13 +83,14 @@ export default {
             this.$store.state.movies_db.forEach(res => {
                 if (res.title === movieSelected) {
                     this.poster = res.poster_path
+                    this.watchingMovie = res
                 }
             })
             console.log(this.poster)
             this.isSelected = false
             this.final_submit = true
             // this.selected = []
-        }
+        },
     },
 }
 </script>
@@ -90,8 +100,17 @@ export default {
 .modal-sizeup {
     height: 700px;
     width: 600;
-    border-radius: 50px;
+    border-radius: 20px;
     box-shadow: 5px 5px 5px 5px black;
+    transition: 0.2s;
+    overflow: hidden;
+}
+
+.modal-sizeup:hover {
+    width: 1000px;
+    background: black;
+    border-radius: 100px;
+    overflow: auto;
 }
 
 .img-final {
