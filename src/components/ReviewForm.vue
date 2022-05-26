@@ -11,7 +11,7 @@
           <input class="form-control" style="width: 50rem;" v-model="newReview.movie_title" type="text" id="movie_title" />
         </div>
         <div>
-          <label class="form-label" for="content">Contnet: </label>
+          <label class="form-label" for="content">Content: </label>
           <textarea class="form-control" style="width: 50rem;" v-model="newReview.content" type="text" id="content"></textarea>
         </div>
         <div>

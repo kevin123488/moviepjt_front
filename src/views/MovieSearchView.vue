@@ -10,7 +10,6 @@
         </a>
       </div>
 
-      <div style="text-align: center;" v-if="doesnt">올바른 검색 결과가 없습니다</div>
 
       <div class="result" v-if="found">
           <div class="results" v-for="foun in found" :key="foun.id">
@@ -21,14 +20,20 @@
                 <h3>{{ foun.title }}</h3>
                 <hr>
                 {{ foun.overview }}
+                <hr>
+                <div href="#" @click="createDetail(foun)">
+                상세정보
+                </div>
             </div>
           </div>
       </div>
+      <div class="wrong-keyword" style="text-align: center;" v-if="doesnt">올바른 검색 결과가 없습니다</div>
 
   </div>
 </template>
 
 <script>
+
 export default {
     name: 'movieSearchView',
     computed: { 
@@ -38,6 +43,7 @@ export default {
             keywords: '',
             found: [],
             doesnt: false,
+            watchingMovie: [],
         }
     },
     methods: {
@@ -72,11 +78,21 @@ export default {
             }
             this.keywords = ''
         },
+        createDetail(movie) {
+            this.watchingMovie = movie
+            console.log(this.watchingMovie)
+            this.$router.push(`/movies/detail/${movie.id}`)
+            this.$store.state.movieNow = this.watchingMovie
+        },
     }
 }
 </script>
 
 <style>
+
+.wrong-keyword {
+    top: 50%;
+}
 
 .result {
     margin-top: 150px;
@@ -93,6 +109,12 @@ export default {
     height: 250px;
 }
 
+.results:hover > .search-detail {
+    width: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
 .results:hover > .right-text {
     width: 500px;
     height: 250px;
@@ -106,6 +128,7 @@ export default {
     height: 0;
     color: #3F475C;
     transition: 0.4s;
+    overflow: auto;
 }
 
 .title {
