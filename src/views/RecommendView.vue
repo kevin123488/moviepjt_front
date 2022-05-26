@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
       <div class="main-pre">그룹당 2개의 영화를 장바구니에 담아 주세요</div>
       <div class="group"><div class="group-align"><h1>Group A</h1></div></div>
       <div class="adiv">

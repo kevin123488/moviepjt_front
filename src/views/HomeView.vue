@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <!-- <h1>Home</h1> -->
     <div class="main-title">인기순</div>
     <!-- <hr>
@@ -11,7 +11,7 @@
     <hr> -->
     <carousel class="m-5" :per-page="5">
       <slide v-for="movie in movies" :key="movie.id">
-        <div class="card home-card" style="width: 18rem;">
+        <div class="card home-card" style="width: 14rem;">
           <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
           <button class="detail-button btn btn-outline-dark" style="color: black;" @click="createDetail(movie)" type="button">
             상세정보
@@ -23,9 +23,9 @@
     <div class="main-title">개봉 예정작</div>
     <carousel class="m-5" :per-page="5">
       <slide v-for="movie in movies_upto" :key="movie.id">
-          <div class="card home-card" style="width: 18rem;" @click="isModalViewed=true">
+          <div class="card home-card" style="width: 14rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid">
-             <button class="detail-button btn btn-outline-dark" style="color: black"  @click="createDetail(movie)" type="button">
+            <button class="detail-button btn btn-outline-dark" style="color: black"  @click="createDetail(movie)" type="button">
               상세정보
             </button>
           </div>
@@ -35,7 +35,7 @@
     <carousel class="m-5" :per-page="5">
       <!-- <div v-for="movie in movies_stars" :key="movie.id"> -->
         <slide v-for="movie in movies_stars" :key="movie.id">
-          <div class="card home-card" style="width: 18rem;" @click="isModalViewed=true">
+          <div class="card home-card" style="width: 14rem;" @click="isModalViewed=true">
             <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid"> 
             <!-- <button type="button" class="btn btn-primary" @click="createDetail(movie)">상세정보</button> -->
           <button class="detail-button btn btn-outline-dark" style="color: black" @click="createDetail(movie)" type="button">
@@ -93,7 +93,7 @@ export default {
 <style>
   .card-img-top {
     width: 100%;
-    height: 20rem;
+    height: 16rem;
     border-radius: 10px;
   }
 

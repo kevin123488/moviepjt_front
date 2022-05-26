@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
       <div class="d-flex">
           <button v-if="!start" class="button-next" type="button" @click="takeMovie">시작하기</button>
       </div>
@@ -79,7 +79,7 @@ export default {
             console.log(this.poster)
             this.isSelected = false
             this.final_submit = true
-            this.selected = []
+            // this.selected = []
         }
     },
 }
