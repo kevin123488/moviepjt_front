@@ -13,7 +13,7 @@
       <div class="container liked_movie_list">
         <h2 class="main-title mx-auto">내가 찜한 목록</h2>
         <div class="row">
-          <div class="col col-lg-3 mt-5 " v-for="movie in profile.like_movies" :key="movie.pk">
+          <div class="col col-lg-3 mt-5" v-for="movie in profile.like_movies" :key="movie.pk">
             <div class=" boxcard btn card" style="width: 12rem; height: 15rem;">
               <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="" class="card-img-top img-fluid profile-movie-image rounded-start">
               <div class="card-body">
