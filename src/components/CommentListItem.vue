@@ -1,5 +1,5 @@
 <template>
-  <li class="mt-4">
+  <li class="mt-4 comment-lay">
     <router-link :to="{ name: 'profile', params: { username: comment.user.username } }">
       작성자 : {{ comment.user.username }}
     </router-link>
@@ -52,4 +52,10 @@ export default {
 </script>
 
 <style>
+
+.comment-lay {
+  width: 500px;
+  margin: auto;
+}
+
 </style>

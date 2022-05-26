@@ -3,15 +3,17 @@
     <div class="review-detail-title">{{ review.user.username }}님의 게시글</div>
     <div class="d-flex justify-content-center m-5">
       <div style="width: 50rem;">
-        <div class="review-title-movie">
-          <h3>리뷰 제목 : {{ review.review_title }}</h3>
-          <h4>영화 제목 :{{ review.movie_title }}</h4>
+        <div class="card mt-2 review-sha">
+          <div class="card-header">
+            <h4>review title : {{ review.review_title }}</h4>
+            <h5>movie title :{{ review.movie_title }}</h5>
+          </div>
+          <!-- <p>{{ review.pk }}</p> -->
+          <div class="card-body" style="width: 300px; margin: auto;">
+            <p style="color: black;" class="card-text">content : {{ review.content }}</p>
+          </div>
         </div>
-        <!-- <p>{{ review.pk }}</p> -->
-        <div class="review-all" style="width: 300px; margin: auto;">
-          <p>내용 : {{ review.content }}</p>
-        </div>
-        <div class="good-button">
+        <div class="good-button" >
           좋아요:
           <button class="white-button btn btn-outline-light btn-sm" 
             @click="likeReview(reviewPk)"
@@ -80,21 +82,26 @@
 
 <style>
 
+.review-sha {
+  box-shadow: 5px 5px black;
+}
+
 .good-button {
   margin-top: 30px;
 }
 
 .review-title-movie {
-  background: #4b546b;
-  border-radius: 20px;
+  background: rgb(230, 230, 230);
+  color: black;
+  border-radius: 10px;
   box-shadow: 5px 5px black;
   margin-bottom: 15px;
 }
 
 .review-all {
-  margin-top: 20px;
-  border: 1px solid white;
-  border-radius: 30px;
+  margin-top: 50px;
+  border-radius: 20px;
+  /* background: white; */
 }
 
 .review-detail-title {
