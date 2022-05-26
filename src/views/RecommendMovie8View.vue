@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="d-flex">
       <button v-if="!start" class="button-next" type="button" @click="takeMovie">8강 시작하기</button>
     </div>
